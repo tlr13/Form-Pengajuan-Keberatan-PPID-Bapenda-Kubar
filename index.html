@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Permohonan Keberatan Informasi Publik - PPID Bapenda Kabupaten Kutai Barat</title>
-  <meta name="description" content="Formulir dan Daftar Pengajuan Keberatan Informasi Publik PPID Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat." />
+  <title>Permohonan Keberatan Informasi Publik - PPID Pelaksana Bapenda Kabupaten Kutai Barat</title>
+  <meta name="description" content="Formulir dan Daftar Pengajuan Keberatan Informasi Publik PPID Pelaksana Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat sesuai UU No. 14 Tahun 2008 dan PerKI No. 1 Tahun 2021." />
   <link rel="preconnect" href="https://challenges.cloudflare.com" />
   <style>
     /* ==========================================================================
-       PPID BAPENDA KABUPATEN KUTAI BARAT — Form Pengajuan Keberatan (GitHub Pages)
-       Adaptasi desain & alur PPID Kota Bontang untuk CMS-KUBAR + Google Sheets
+       PPID PELAKSANA BAPENDA KABUPATEN KUTAI BARAT — Form Pengajuan Keberatan
+       Standar: UU 14/2008, PerKI 1/2021 (Pasal 39-44 & Lampiran X-XI), SK PPID 2026
        ========================================================================== */
     html {
       scroll-behavior: smooth;
@@ -69,179 +69,134 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Mode Kontras Tinggi (Aksesibilitas Disabilitas) */
+    body.high-contrast { background-color: #0b0f19 !important; color: #ffffff !important; }
+    body.high-contrast .surface-card,
+    body.high-contrast .kubar-info-bar,
+    body.high-contrast .a11y-bar,
+    body.high-contrast .hak-accordion,
+    body.high-contrast .modal-dialog,
+    body.high-contrast .dx-toolbar,
+    body.high-contrast .dx-pager,
+    body.high-contrast .upload-dropzone,
+    body.high-contrast .upload-preview,
+    body.high-contrast .form-control,
+    body.high-contrast .dx-search-input,
+    body.high-contrast .dx-icon-btn,
+    body.high-contrast .dx-group-panel,
+    body.high-contrast .column-chooser-popover,
+    body.high-contrast .check-card,
+    body.high-contrast .kuasa-panel {
+      background: #111827 !important; color: #ffffff !important; border-color: #facc15 !important;
+    }
+    body.high-contrast .card-header,
+    body.high-contrast .dx-table thead th,
+    body.high-contrast .modal-foot,
+    body.high-contrast .hak-body {
+      background: #1f2937 !important; color: #facc15 !important; border-color: #facc15 !important;
+    }
+    body.high-contrast .card-header-text h2,
+    body.high-contrast .form-section-head h4,
+    body.high-contrast .form-label,
+    body.high-contrast .dx-table tbody td,
+    body.high-contrast .detail-kv-table td,
+    body.high-contrast .kubar-info-bar strong,
+    body.high-contrast .upload-text-main,
+    body.high-contrast .upload-filename,
+    body.high-contrast .hak-accordion summary { color: #ffffff !important; }
+    body.high-contrast .card-header-text p,
+    body.high-contrast .field-hint,
+    body.high-contrast .detail-kv-table th,
+    body.high-contrast .dx-page-info,
+    body.high-contrast .kubar-info-bar,
+    body.high-contrast .hak-body { color: #e5e7eb !important; }
+    body.high-contrast .btn-primary { background: #facc15 !important; color: #0b0f19 !important; border-color: #facc15 !important; }
+    body.high-contrast .btn-secondary,
+    body.high-contrast .btn-outline-list,
+    body.high-contrast .a11y-btn { background: #111827 !important; color: #facc15 !important; border-color: #facc15 !important; }
+
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font-family: inherit; font-size: inherit; }
 
-    .embed-container {
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+    .embed-container { width: 100%; max-width: 1100px; margin: 0 auto; }
 
-    /* Banner Identitas PPID Bapenda Kutai Barat */
+    /* Bilah Aksesibilitas */
+    .a11y-bar {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+      padding: 8px 14px; margin-bottom: 14px; border-radius: var(--radius-md);
+      background: var(--white); border: 1px solid var(--slate-200); font-size: 0.79rem; color: var(--slate-600);
+    }
+    .a11y-label { display: inline-flex; align-items: center; gap: 7px; font-weight: 700; color: var(--navy-900); }
+    .a11y-controls { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .a11y-btn {
+      display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: var(--radius-sm);
+      border: 1px solid var(--slate-300); background: var(--slate-50); color: var(--slate-700);
+      font-size: 0.77rem; font-weight: 600; cursor: pointer; transition: all 0.15s ease;
+    }
+    .a11y-btn:hover, .a11y-btn.active { border-color: var(--blue-600); background: var(--blue-600); color: var(--white); }
+
+    /* Banner Identitas PPID Pelaksana Bapenda Kutai Barat */
     .embed-hero {
       background: linear-gradient(135deg, #0b243e 0%, #124478 58%, #0e6c67 100%);
-      color: var(--white);
-      border-radius: var(--radius-lg);
-      padding: 22px 26px;
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      color: var(--white); border-radius: var(--radius-lg); padding: 22px 26px; margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
       box-shadow: var(--shadow-md);
     }
-
-    .embed-hero-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .embed-hero h1 {
-      margin: 0;
-      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
-      font-weight: 800;
-      letter-spacing: -0.015em;
-      line-height: 1.25;
-    }
-
-    .embed-hero p {
-      margin: 3px 0 0;
-      font-size: 0.84rem;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .embed-hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .embed-hero-left { display: flex; align-items: center; gap: 14px; }
+    .embed-hero h1 { margin: 0; font-size: clamp(1.15rem, 2.1vw, 1.5rem); font-weight: 800; letter-spacing: -0.015em; line-height: 1.25; }
+    .embed-hero p { margin: 3px 0 0; font-size: 0.83rem; color: rgba(255, 255, 255, 0.86); }
+    .embed-hero-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .btn-hero-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--white);
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.16s ease;
+      display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.32); background: rgba(255, 255, 255, 0.12);
+      color: var(--white); font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: background-color 0.16s ease;
     }
-
-    .btn-hero-ghost:hover {
-      background: rgba(255, 255, 255, 0.22);
-    }
-
+    .btn-hero-ghost:hover { background: rgba(255, 255, 255, 0.22); }
     .btn-hero-solid {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 15px;
-      border-radius: var(--radius-sm);
-      border: 1px solid #ffffff;
-      background: #ffffff;
-      color: var(--navy-900);
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
+      display: inline-flex; align-items: center; gap: 7px; padding: 8px 15px; border-radius: var(--radius-sm);
+      border: 1px solid #ffffff; background: #ffffff; color: var(--navy-900);
+      font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: transform 0.16s ease, box-shadow 0.16s ease;
     }
+    .btn-hero-solid:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(9, 29, 50, 0.22); }
 
-    .btn-hero-solid:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(9, 29, 50, 0.22);
+    /* Accordion Ketentuan & Tenggat Keberatan (PerKI 1/2021 Pasal 39-44) */
+    .hak-accordion {
+      margin-bottom: 18px; border-radius: var(--radius-md); background: var(--white);
+      border: 1px solid #bfdbfe; box-shadow: var(--shadow-md); overflow: hidden;
     }
-
-    /* Info Alur Singkat UU KIP */
-    .notice-strip {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 13px 18px;
-      margin-bottom: 20px;
-      border-radius: var(--radius-md);
-      background: var(--blue-50);
-      border: 1px solid #bfdbfe;
-      color: var(--navy-900);
-      font-size: 0.84rem;
-      line-height: 1.55;
+    .hak-accordion summary {
+      list-style: none; cursor: pointer; padding: 13px 18px; background: var(--blue-50); color: var(--navy-900);
+      font-size: 0.87rem; font-weight: 700; display: flex; align-items: center; justify-content: space-between; gap: 10px;
     }
-
-    .notice-strip svg {
-      width: 19px;
-      height: 19px;
-      color: var(--blue-600);
-      flex-shrink: 0;
-      margin-top: 2px;
+    .hak-accordion summary::-webkit-details-marker { display: none; }
+    .hak-summary-left { display: inline-flex; align-items: center; gap: 9px; }
+    .hak-summary-pill {
+      font-size: 0.74rem; font-weight: 700; padding: 3px 9px; border-radius: var(--radius-pill);
+      background: var(--blue-100); color: var(--blue-700); white-space: nowrap;
     }
+    .hak-body { padding: 14px 18px 16px; border-top: 1px solid #dbeafe; font-size: 0.83rem; color: var(--slate-700); }
+    .hak-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 12px; }
+    .hak-kpi { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--slate-50); border: 1px solid var(--slate-200); }
+    .hak-kpi strong { display: block; color: var(--blue-700); font-size: 0.86rem; }
+    .hak-kpi span { font-size: 0.77rem; color: var(--slate-600); }
+    .hak-list { margin: 0; padding-left: 18px; }
+    .hak-list li + li { margin-top: 4px; }
 
     /* Surface Cards */
-    .surface-card {
-      background: var(--white);
-      border: 1px solid var(--slate-200);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      overflow: hidden;
-    }
-
+    .surface-card { background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); overflow: hidden; }
     .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      padding: 20px 26px;
-      border-bottom: 1px solid var(--slate-200);
-      background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+      display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+      padding: 20px 26px; border-bottom: 1px solid var(--slate-200); background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
     }
-
-    .card-header-text h2 {
-      margin: 0;
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--navy-900);
-    }
-
-    .card-header-text p {
-      margin: 3px 0 0;
-      font-size: 0.85rem;
-      color: var(--slate-500);
-    }
-
-    .card-header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .card-header-text h2 { margin: 0; font-size: 1.15rem; font-weight: 700; color: var(--navy-900); }
+    .card-header-text p { margin: 3px 0 0; font-size: 0.85rem; color: var(--slate-500); }
+    .card-header-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
     .btn-outline-list {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 9px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--blue-600);
-      background: var(--blue-50);
-      color: var(--blue-700);
-      font-size: 0.83rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.16s ease;
+      display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: var(--radius-sm);
+      border: 1px solid var(--blue-600); background: var(--blue-50); color: var(--blue-700);
+      font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: all 0.16s ease;
     }
-
-    .btn-outline-list:hover {
-      background: var(--blue-600);
-      color: var(--white);
-    }
-
+    .btn-outline-list:hover { background: var(--blue-600); color: var(--white); }
     .btn-outline-list svg { width: 15px; height: 15px; }
 
     /* Buttons */
@@ -255,183 +210,129 @@
     .btn-primary { background: var(--blue-600); color: var(--white); box-shadow: 0 3px 10px rgba(21, 101, 192, 0.24); }
     .btn-primary:hover:not(:disabled) { background: var(--blue-700); transform: translateY(-1px); }
     .btn-primary:disabled { opacity: 0.72; cursor: not-allowed; }
-    .spinner {
-      width: 15px; height: 15px; border: 2px solid rgba(255, 255, 255, 0.35);
-      border-top-color: #ffffff; border-radius: 50%; animation: spin 0.7s linear infinite;
-    }
+    .spinner { width: 15px; height: 15px; border: 2px solid rgba(255, 255, 255, 0.35); border-top-color: #ffffff; border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Form Controls */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 15px 18px;
+    /* Form Modal Sections */
+    .form-section-block + .form-section-block {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--slate-200);
     }
-
-    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-section-head {
+      display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
+    }
+    .section-badge {
+      display: inline-flex; align-items: center; justify-content: center; width: 25px; height: 25px;
+      border-radius: 6px; background: var(--blue-100); color: var(--blue-700); font-weight: 800; font-size: 0.78rem; flex-shrink: 0;
+    }
+    .form-section-head h4 { margin: 0; font-size: 0.94rem; font-weight: 700; color: var(--navy-900); }
+    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+    .form-field { display: flex; flex-direction: column; gap: 5px; }
     .form-field.span-2 { grid-column: 1 / -1; }
-
-    .form-label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--slate-700);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-
+    .form-label { font-size: 0.84rem; font-weight: 600; color: var(--slate-700); display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
     .req { color: var(--red-600); font-weight: 700; }
+    .opt-tag { font-size: 0.74rem; font-weight: 500; color: var(--slate-500); }
 
     .form-control {
-      width: 100%;
-      min-height: 42px;
-      padding: 9px 13px;
-      border: 1px solid var(--slate-300);
-      border-radius: var(--radius-sm);
-      background-color: var(--white);
-      color: var(--slate-900);
-      font-size: 0.89rem;
-      line-height: 1.45;
-      transition: border-color 0.16s ease, box-shadow 0.16s ease;
+      width: 100%; min-height: 41px; padding: 9px 12px; border: 1px solid var(--slate-300);
+      border-radius: var(--radius-sm); background-color: var(--white); color: var(--slate-900);
+      font-size: 0.88rem; line-height: 1.45; transition: border-color 0.16s ease, box-shadow 0.16s ease;
     }
-
     .form-control::placeholder { color: var(--slate-400); }
     .form-control:hover { border-color: var(--slate-400); }
-    .form-control:focus {
-      outline: none;
-      border-color: var(--blue-600);
-      box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
-    }
-
-    textarea.form-control { resize: vertical; min-height: 86px; }
-
+    .form-control:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15); }
+    textarea.form-control { resize: vertical; min-height: 78px; }
     select.form-control {
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 38px;
-      cursor: pointer;
+      background-repeat: no-repeat; background-position: right 12px center; padding-right: 36px; cursor: pointer;
     }
-
     .form-field.has-error .form-control,
     .form-field.has-error .upload-dropzone,
-    .form-field.has-error .slide-verify-track {
-      border-color: var(--red-600);
-      background-color: #fffafa;
-    }
-
-    .field-error { display: none; font-size: 0.77rem; font-weight: 500; color: var(--red-600); }
+    .form-field.has-error .slide-verify-track { border-color: var(--red-600); background-color: #fffafa; }
+    .field-error { display: none; font-size: 0.76rem; font-weight: 500; color: var(--red-600); }
     .form-field.has-error .field-error { display: block; }
-    .field-hint { font-size: 0.77rem; color: var(--slate-500); margin: 0; }
+    .field-hint { font-size: 0.76rem; color: var(--slate-500); margin: 0; }
+
+    .check-card {
+      display: flex; align-items: center; gap: 10px; padding: 11px 14px;
+      border-radius: var(--radius-sm); border: 1px solid var(--slate-200); background: var(--slate-50);
+      cursor: pointer; font-size: 0.84rem; font-weight: 600; color: var(--slate-800);
+    }
+    .check-card input { width: 17px; height: 17px; accent-color: var(--blue-600); cursor: pointer; flex-shrink: 0; }
+    .kuasa-panel {
+      margin-top: 12px;
+      padding: 15px;
+      border-radius: var(--radius-md);
+      background: var(--blue-50);
+      border: 1px solid #bfdbfe;
+      display: none;
+    }
+    .kuasa-panel.active { display: block; }
 
     /* File Upload */
     .upload-dropzone {
-      position: relative;
-      border: 1.5px dashed var(--slate-300);
-      border-radius: var(--radius-md);
-      background: var(--slate-50);
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      cursor: pointer;
-      transition: border-color 0.18s ease, background-color 0.18s ease;
+      position: relative; border: 1.5px dashed var(--slate-300); border-radius: var(--radius-md);
+      background: var(--slate-50); padding: 14px; display: flex; align-items: center; gap: 12px;
+      cursor: pointer; transition: border-color 0.18s ease, background-color 0.18s ease;
     }
     .upload-dropzone:hover, .upload-dropzone.drag-over { border-color: var(--blue-600); background: var(--blue-50); }
     .upload-dropzone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
     .upload-icon-box {
-      width: 42px; height: 42px; border-radius: 10px;
-      background: var(--white); border: 1px solid var(--slate-200);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--blue-600); flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 9px; background: var(--white); border: 1px solid var(--slate-200);
+      display: flex; align-items: center; justify-content: center; color: var(--blue-600); flex-shrink: 0;
     }
-    .upload-text-main { font-size: 0.86rem; font-weight: 600; color: var(--slate-800); }
+    .upload-text-main { font-size: 0.85rem; font-weight: 600; color: var(--slate-800); }
     .upload-text-main span { color: var(--blue-600); text-decoration: underline; }
     .upload-preview {
       display: none; align-items: center; justify-content: space-between; gap: 12px;
-      padding: 11px 14px; border: 1px solid var(--slate-200); border-radius: var(--radius-md); background: var(--white);
+      padding: 10px 13px; border: 1px solid var(--slate-200); border-radius: var(--radius-md); background: var(--white);
     }
     .upload-preview.active { display: flex; }
-    .upload-preview-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-    .upload-thumb { width: 54px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid var(--slate-200); flex-shrink: 0; }
+    .upload-preview-left { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .upload-thumb { width: 52px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid var(--slate-200); flex-shrink: 0; }
+    .upload-pdf-badge {
+      display: none; width: 52px; height: 38px; border-radius: 6px; background: #fee2e2; color: #b91c1c;
+      font-size: 0.74rem; font-weight: 800; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid #fecaca;
+    }
     .upload-meta { min-width: 0; }
-    .upload-filename { font-size: 0.84rem; font-weight: 600; color: var(--slate-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px; }
-    .upload-filesize { font-size: 0.75rem; color: var(--teal-600); font-weight: 600; }
+    .upload-filename { font-size: 0.83rem; font-weight: 600; color: var(--slate-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px; }
+    .upload-filesize { font-size: 0.74rem; color: var(--teal-600); font-weight: 600; }
     .btn-remove-file {
-      padding: 6px 11px; border-radius: 6px; border: 1px solid #fecaca;
-      background: #fef2f2; color: var(--red-600); font-size: 0.78rem; font-weight: 600; cursor: pointer;
+      padding: 6px 10px; border-radius: 6px; border: 1px solid #fecaca;
+      background: #fef2f2; color: var(--red-600); font-size: 0.77rem; font-weight: 600; cursor: pointer;
     }
     .btn-remove-file:hover { background: var(--red-600); color: var(--white); }
 
-    /* Verifikasi Keamanan (Cloudflare Turnstile & Fallback Slide To Verify) */
-    .verify-block {
-      margin-top: 18px;
-      padding-top: 16px;
-      border-top: 1px solid var(--slate-200);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+    /* Verifikasi Keamanan */
+    .verify-block { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--slate-200); display: flex; flex-direction: column; gap: 12px; }
     .turnstile-box { display: flex; flex-direction: column; gap: 6px; min-height: 66px; }
     .turnstile-status { font-size: 0.78rem; font-weight: 600; color: var(--amber-600); min-height: 0; }
     .turnstile-status.is-error { color: var(--red-600); }
     .slide-verify-wrapper { max-width: 350px; width: 100%; }
-    .slide-verify-track {
-      position: relative; height: 46px; border-radius: var(--radius-sm);
-      background: #edf2f7; border: 1px solid var(--slate-300);
-      overflow: hidden; user-select: none; touch-action: none;
-    }
+    .slide-verify-track { position: relative; height: 46px; border-radius: var(--radius-sm); background: #edf2f7; border: 1px solid var(--slate-300); overflow: hidden; user-select: none; touch-action: none; }
     .slide-verify-fill { position: absolute; top: 0; left: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #16a34a 0%, #0d9488 100%); }
-    .slide-verify-label {
-      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
-      font-size: 0.84rem; font-weight: 600; color: var(--slate-600); pointer-events: none;
-    }
+    .slide-verify-label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.84rem; font-weight: 600; color: var(--slate-600); pointer-events: none; }
     .slide-verify-track.verified { border-color: var(--teal-600); }
     .slide-verify-track.verified .slide-verify-label { color: var(--white); padding-right: 42px; }
-    .slide-verify-knob {
-      position: absolute; top: 2px; left: 2px; width: 42px; height: 40px;
-      border-radius: 5px; border: 1px solid var(--slate-300); background: var(--white);
-      color: var(--blue-600); display: flex; align-items: center; justify-content: center;
-      cursor: grab; box-shadow: 0 2px 6px rgba(14, 42, 71, 0.14); z-index: 2;
-    }
+    .slide-verify-knob { position: absolute; top: 2px; left: 2px; width: 42px; height: 40px; border-radius: 5px; border: 1px solid var(--slate-300); background: var(--white); color: var(--blue-600); display: flex; align-items: center; justify-content: center; cursor: grab; box-shadow: 0 2px 6px rgba(14, 42, 71, 0.14); z-index: 2; }
     .slide-verify-knob:active { cursor: grabbing; }
     .slide-verify-track.verified .slide-verify-knob { color: var(--teal-600); border-color: rgba(255, 255, 255, 0.7); cursor: default; }
 
     /* DataGrid */
-    .dx-toolbar {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-      padding: 13px 18px; background: var(--slate-50); border-bottom: 1px solid var(--slate-200);
-    }
-    .dx-group-panel {
-      flex: 1 1 260px; min-height: 36px; padding: 6px 12px; border: 1px dashed var(--slate-300);
-      border-radius: var(--radius-sm); background: var(--white); display: flex; align-items: center;
-      gap: 8px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate-400);
-    }
+    .dx-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 13px 18px; background: var(--slate-50); border-bottom: 1px solid var(--slate-200); }
+    .dx-group-panel { flex: 1 1 260px; min-height: 36px; padding: 6px 12px; border: 1px dashed var(--slate-300); border-radius: var(--radius-sm); background: var(--white); display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate-400); }
     .dx-group-panel.drop-active { border-color: var(--blue-600); background: var(--blue-50); color: var(--blue-700); }
-    .group-chip {
-      display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px;
-      border-radius: var(--radius-pill); background: var(--blue-100); color: var(--blue-700); font-size: 0.77rem; font-weight: 600;
-    }
+    .group-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: var(--radius-pill); background: var(--blue-100); color: var(--blue-700); font-size: 0.77rem; font-weight: 600; }
     .group-chip button { border: none; background: transparent; color: inherit; cursor: pointer; font-weight: 700; padding: 0; }
     .dx-tools-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; position: relative; }
-    .dx-search-input {
-      height: 36px; width: 210px; padding: 0 12px; border: 1px solid var(--slate-300);
-      border-radius: var(--radius-sm); font-size: 0.83rem; background: var(--white); color: var(--slate-800);
-    }
+    .dx-search-input { height: 36px; width: 210px; padding: 0 12px; border: 1px solid var(--slate-300); border-radius: var(--radius-sm); font-size: 0.83rem; background: var(--white); color: var(--slate-800); }
     .dx-search-input:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.14); }
-    .dx-icon-btn {
-      display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px;
-      border: 1px solid var(--slate-300); border-radius: var(--radius-sm); background: var(--white);
-      color: var(--slate-700); font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    }
+    .dx-icon-btn { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border: 1px solid var(--slate-300); border-radius: var(--radius-sm); background: var(--white); color: var(--slate-700); font-size: 0.8rem; font-weight: 600; cursor: pointer; }
     .dx-icon-btn:hover { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
     .dx-icon-btn svg { width: 14px; height: 14px; }
-    .column-chooser-popover {
-      position: absolute; top: calc(100% + 6px); right: 0; width: 230px;
-      background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg); padding: 12px; z-index: 40; display: none;
-    }
+    .column-chooser-popover { position: absolute; top: calc(100% + 6px); right: 0; width: 230px; background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 12px; z-index: 40; display: none; }
     .column-chooser-popover.open { display: block; }
     .column-chooser-title { font-size: 0.76rem; font-weight: 700; color: var(--navy-900); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--slate-100); }
     .column-chooser-item { display: flex; align-items: center; gap: 8px; padding: 5px 4px; font-size: 0.83rem; color: var(--slate-700); cursor: pointer; }
@@ -440,17 +341,10 @@
     .dx-table-wrap { position: relative; width: 100%; overflow-x: auto; }
     .dx-loading-overlay { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.78); display: none; align-items: center; justify-content: center; z-index: 10; }
     .dx-loading-overlay.active { display: flex; }
-    .dx-loading-pill {
-      display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px;
-      border-radius: var(--radius-pill); background: var(--white); border: 1px solid var(--slate-200);
-      box-shadow: var(--shadow-md); font-size: 0.84rem; font-weight: 600; color: var(--navy-900);
-    }
+    .dx-loading-pill { display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: var(--radius-pill); background: var(--white); border: 1px solid var(--slate-200); box-shadow: var(--shadow-md); font-size: 0.84rem; font-weight: 600; color: var(--navy-900); }
     .dx-loading-pill .spinner { border-color: var(--blue-100); border-top-color: var(--blue-600); }
     .dx-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; text-align: left; }
-    .dx-table thead th {
-      background: #f8fafc; color: var(--slate-700); font-weight: 700; font-size: 0.79rem;
-      padding: 11px 13px; border-bottom: 1px solid var(--slate-200); white-space: nowrap; user-select: none;
-    }
+    .dx-table thead th { background: #f8fafc; color: var(--slate-700); font-weight: 700; font-size: 0.79rem; padding: 11px 13px; border-bottom: 1px solid var(--slate-200); white-space: nowrap; user-select: none; }
     .dx-table thead th.sortable { cursor: pointer; }
     .dx-table thead th.sortable:hover { background: var(--blue-50); color: var(--blue-700); }
     .th-content { display: inline-flex; align-items: center; gap: 5px; }
@@ -458,76 +352,43 @@
     .dx-table tbody td { padding: 11px 13px; border-bottom: 1px solid var(--slate-100); color: var(--slate-700); vertical-align: top; }
     .dx-table tbody tr:hover { background-color: #f8fbff; }
     .dx-group-row td { background: #eef4fb !important; color: var(--navy-900) !important; font-weight: 700; font-size: 0.82rem; padding: 8px 13px !important; }
-
-    .code-badge {
-      display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.77rem; font-weight: 700; padding: 3px 8px; border-radius: 5px;
-      background: var(--slate-100); color: var(--navy-900); border: 1px solid var(--slate-200);
-    }
-    .status-badge {
-      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
-      border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; white-space: nowrap;
-    }
+    .code-badge { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.77rem; font-weight: 700; padding: 3px 8px; border-radius: 5px; background: var(--slate-100); color: var(--navy-900); border: 1px solid var(--slate-200); }
+    .kuasa-sub { display: block; font-size: 0.73rem; color: var(--slate-500); margin-top: 2px; font-weight: 500; }
+    .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
     .status-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
     .status-selesai { background: var(--teal-100); color: var(--teal-600); }
     .status-dikirim { background: var(--blue-100); color: var(--blue-700); }
     .status-diproses { background: var(--amber-100); color: var(--amber-600); }
     .status-ditolak { background: var(--red-100); color: var(--red-600); }
-    .btn-detail-row {
-      display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 6px;
-      border: 1px solid var(--blue-600); background: var(--white); color: var(--blue-600);
-      font-size: 0.77rem; font-weight: 600; cursor: pointer;
-    }
+    .btn-detail-row { display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--blue-600); background: var(--white); color: var(--blue-600); font-size: 0.77rem; font-weight: 600; cursor: pointer; }
     .btn-detail-row:hover { background: var(--blue-600); color: var(--white); }
-    .td-clamp { max-width: 300px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .td-clamp { max-width: 280px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-    .dx-pager {
-      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-      padding: 12px 18px; background: var(--white); border-top: 1px solid var(--slate-200);
-    }
+    .dx-pager { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 12px 18px; background: var(--white); border-top: 1px solid var(--slate-200); }
     .dx-page-sizes, .dx-page-nums { display: flex; align-items: center; gap: 4px; }
-    .dx-size-btn, .dx-page-btn {
-      min-width: 30px; height: 30px; padding: 0 8px; border-radius: 6px;
-      border: 1px solid transparent; background: transparent; color: var(--slate-600);
-      font-size: 0.81rem; font-weight: 600; cursor: pointer;
-    }
+    .dx-size-btn, .dx-page-btn { min-width: 30px; height: 30px; padding: 0 8px; border-radius: 6px; border: 1px solid transparent; background: transparent; color: var(--slate-600); font-size: 0.81rem; font-weight: 600; cursor: pointer; }
     .dx-size-btn:hover, .dx-page-btn:hover:not(:disabled) { background: var(--slate-100); color: var(--navy-900); }
     .dx-size-btn.active, .dx-page-btn.active { background: var(--blue-600); color: var(--white); }
     .dx-page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
     .dx-pages-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .dx-page-info { font-size: 0.79rem; color: var(--slate-500); }
 
-    /* Info Strip Bawah */
+    /* Info Strip Bawah (Sesuai SK PPID Bapenda 2026) */
     .kubar-info-bar {
-      margin-top: 20px;
-      padding: 14px 18px;
-      border-radius: var(--radius-md);
-      background: var(--white);
-      border: 1px solid var(--slate-200);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 0.81rem;
-      color: var(--slate-600);
+      margin-top: 20px; padding: 15px 18px; border-radius: var(--radius-md);
+      background: var(--white); border: 1px solid var(--slate-200);
+      display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem; color: var(--slate-600);
     }
+    .kubar-info-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .kubar-info-bar strong { color: var(--navy-900); }
+    .kubar-legal-note { font-size: 0.75rem; color: var(--slate-500); border-top: 1px solid var(--slate-100); padding-top: 6px; }
 
-    /* Modals & Toasts (align-items: flex-start agar selalu tampil jelas di dalam iframe CMS) */
-    .modal-backdrop {
-      position: fixed; inset: 0; background: rgba(9, 29, 50, 0.56); backdrop-filter: blur(3px);
-      z-index: 1200; display: none; align-items: flex-start; justify-content: center;
-      padding: 20px 14px; overflow-y: auto;
-    }
+    /* Modals & Toasts (align-items: flex-start agar selalu tampil di atas dalam iframe CMS) */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(9, 29, 50, 0.56); backdrop-filter: blur(3px); z-index: 1200; display: none; align-items: flex-start; justify-content: center; padding: 18px 14px; overflow-y: auto; }
     .modal-backdrop.open { display: flex; }
-    .modal-dialog {
-      width: 100%; max-width: 620px; background: var(--white);
-      border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden;
-      display: flex; flex-direction: column; margin-bottom: 24px;
-    }
-    .modal-dialog.modal-lg { max-width: 740px; }
-    .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; background: var(--navy-900); color: var(--white); }
+    .modal-dialog { width: 100%; max-width: 640px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; display: flex; flex-direction: column; margin-bottom: 24px; }
+    .modal-dialog.modal-lg { max-width: 780px; }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 22px; background: var(--navy-900); color: var(--white); }
     .modal-head h3 { margin: 0; font-size: 1.02rem; font-weight: 700; }
     .modal-close { border: none; background: rgba(255, 255, 255, 0.14); color: var(--white); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 1.05rem; line-height: 1; }
     .modal-body { padding: 20px 22px; }
@@ -541,6 +402,7 @@
     .receipt-box { background: var(--teal-100); border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 14px 16px; text-align: center; margin-bottom: 16px; }
     .receipt-code-row { display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; background: var(--white); padding: 7px 14px; border-radius: var(--radius-sm); border: 1px solid #6ee7b7; }
     .receipt-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.08em; color: var(--navy-900); }
+    .receipt-email-note { margin-top: 8px; font-size: 0.78rem; color: var(--teal-600); font-weight: 600; }
 
     .toast-stack { position: fixed; top: 14px; right: 14px; z-index: 1400; display: flex; flex-direction: column; gap: 8px; max-width: 340px; }
     .toast { padding: 11px 15px; border-radius: var(--radius-md); background: var(--navy-900); color: var(--white); font-size: 0.84rem; font-weight: 500; box-shadow: var(--shadow-lg); }
@@ -550,7 +412,7 @@
     @media (max-width: 720px) {
       body { padding: 10px; }
       .card-header, .modal-body, .modal-head, .modal-foot { padding: 16px; }
-      .form-grid { grid-template-columns: 1fr; }
+      .form-grid, .hak-grid { grid-template-columns: 1fr; }
       .modal-foot { justify-content: stretch; }
       .modal-foot .btn { flex: 1 1 auto; }
       .dx-search-input, .dx-tools-right { width: 100%; }
@@ -559,7 +421,25 @@
 </head>
 <body>
   <div class="embed-container">
-    <!-- Banner Identitas PPID Bapenda Kabupaten Kutai Barat -->
+    <!-- Bilah Aksesibilitas Penyandang Disabilitas -->
+    <div class="a11y-bar" role="region" aria-label="Alat Aksesibilitas Disabilitas">
+      <span class="a11y-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="4.5" r="2"></circle>
+          <path d="M5 8.5h14M12 8.5v5.5m0 0-3 6m3-6 3 6"></path>
+        </svg>
+        <span>Aksesibilitas Layanan</span>
+      </span>
+      <div class="a11y-controls">
+        <button type="button" class="a11y-btn" id="a11yIncBtn" title="Perbesar ukuran teks">A+ Perbesar</button>
+        <button type="button" class="a11y-btn" id="a11yDecBtn" title="Perkecil ukuran teks">A- Perkecil</button>
+        <button type="button" class="a11y-btn" id="a11yContrastBtn" aria-pressed="false">Kontras Tinggi</button>
+        <button type="button" class="a11y-btn" id="a11ySpeakBtn" aria-pressed="false">Baca Suara</button>
+        <button type="button" class="a11y-btn" id="a11yResetBtn">Reset</button>
+      </div>
+    </div>
+
+    <!-- Banner Identitas PPID Pelaksana Bapenda Kabupaten Kutai Barat -->
     <div class="embed-hero">
       <div class="embed-hero-left">
         <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -569,8 +449,8 @@
           <path d="M15 32.5C17.6 30.8 20.5 30.8 23.2 32.5C25.8 34.2 28.8 34.2 31.8 32.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
         <div>
-          <h1>Permohonan Keberatan — PPID Bapenda Kabupaten Kutai Barat</h1>
-          <p>Badan Pendapatan Daerah Pemerintah Kabupaten Kutai Barat &bull; Tanaa Purai Ngeriman</p>
+          <h1>Permohonan Keberatan — PPID Pelaksana Bapenda Kutai Barat</h1>
+          <p>Pengajuan Keberatan kepada Atasan PPID (Kepala Bapenda Kabupaten Kutai Barat) &bull; UU No. 14/2008 &amp; PerKI No. 1/2021</p>
         </div>
       </div>
       <div class="embed-hero-actions">
@@ -579,24 +459,49 @@
       </div>
     </div>
 
-    <!-- Info Singkat Hak Keberatan -->
-    <div class="notice-strip">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="16" x2="12" y2="12"></line>
-        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-      </svg>
-      <div>
-        Sesuai <strong>UU Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik</strong>, pemohon informasi berhak mengajukan keberatan tertulis kepada Atasan PPID Bapenda Kabupaten Kutai Barat apabila permohonan informasi tidak ditanggapi, ditolak, atau tidak sesuai permintaan. Klik tombol <strong>Ajukan Keberatan</strong> untuk mengisi formulir.
+    <!-- Ketentuan & Jangka Waktu Pengajuan Keberatan (PerKI 1/2021 Pasal 39-44) -->
+    <details class="hak-accordion">
+      <summary>
+        <span class="hak-summary-left">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1565c0" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span>Tata Cara &amp; Ketentuan Pengajuan Keberatan (Klik untuk membaca)</span>
+        </span>
+        <span class="hak-summary-pill">Tanggapan Atasan PPID: Maks. 30 Hari Kerja</span>
+      </summary>
+      <div class="hak-body">
+        <div class="hak-grid">
+          <div class="hak-kpi">
+            <strong>30 Hari Kerja</strong>
+            <span>Batas pengajuan keberatan sejak alasan keberatan ditemukan</span>
+          </div>
+          <div class="hak-kpi">
+            <strong>Maks. 30 Hari Kerja</strong>
+            <span>Tanggapan tertulis dari Atasan PPID (Kepala Bapenda Kab. Kutai Barat)</span>
+          </div>
+          <div class="hak-kpi">
+            <strong>14 Hari Kerja</strong>
+            <span>Batas pengajuan sengketa ke Komisi Informasi jika tidak puas</span>
+          </div>
+        </div>
+        <ol class="hak-list">
+          <li>Keberatan ditujukan kepada <strong>Atasan PPID (Kepala Badan Pendapatan Daerah Kabupaten Kutai Barat)</strong> berdasarkan 7 alasan pada Pasal 35 ayat (1) UU KIP.</li>
+          <li>Khusus alasan <em>"Tidak disediakannya informasi berkala"</em>, kolom Kode Permohonan Informasi bersifat <strong>opsional</strong> (Lampiran XI PerKI No. 1/2021).</li>
+          <li>Jika pengajuan keberatan dikuasakan kepada pihak lain, wajib melampirkan <strong>Surat Kuasa Khusus bermeterai</strong> (Pasal 39 ayat 4 PerKI No. 1/2021).</li>
+          <li><strong>Nomor Registrasi Keberatan (`PKKBxxxx`)</strong> tampil langsung setelah kirim dan dikirim otomatis ke email pemohon (Pasal 42 ayat 3 PerKI No. 1/2021).</li>
+        </ol>
       </div>
-    </div>
+    </details>
 
     <!-- Daftar Permohonan Keberatan -->
     <section class="surface-card" id="daftar-keberatan-section" aria-labelledby="daftarHeading">
       <div class="card-header">
         <div class="card-header-text">
           <h2 id="daftarHeading">Permohonan Keberatan</h2>
-          <p>Transparansi daftar pengajuan keberatan informasi publik PPID Bapenda Kabupaten Kutai Barat.</p>
+          <p>Transparansi daftar pengajuan keberatan informasi publik PPID Pelaksana Bapenda Kabupaten Kutai Barat.</p>
         </div>
         <div class="card-header-actions">
           <button type="button" class="btn-outline-list" id="openCekStatusFromTable">
@@ -670,97 +575,209 @@
       </div>
     </section>
 
-    <!-- Info Sekretariat Ringkas PPID Bapenda Kutai Barat -->
+    <!-- Info Sekretariat Resmi PPID Pelaksana Bapenda Kutai Barat (SK 2026) -->
     <div class="kubar-info-bar">
-      <div><strong>PPID Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat:</strong> Komplek Perkantoran Pemkab Kutai Barat, Kec. Barong Tongkok, Sendawar</div>
-      <div><strong>Pemerintah Kabupaten Kutai Barat</strong></div>
+      <div class="kubar-info-top">
+        <div><strong>PPID Pelaksana Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat:</strong> Jalan Komplek Perkantoran Pemerintah Kabupaten Kutai Barat, Kode Pos 75776</div>
+        <div><strong>Email:</strong> bapenda@kutaibaratkab.go.id</div>
+      </div>
+      <div class="kubar-legal-note">
+        Atasan PPID Pelaksana: Kepala Badan Pendapatan Daerah Kabupaten Kutai Barat &bull; Dasar Hukum: UU No. 14/2008, PerKI No. 1/2021 (Lampiran X–XI), Perbup Kubar No. 14/2015, SK Kepala Bapenda No. 800.1.1.3/494/BAPENDA/V/2026.
+      </div>
     </div>
   </div>
 
-  <!-- Modal Form Pengajuan Keberatan -->
+  <!-- Modal Form Pengajuan Keberatan (Standar PerKI No. 1/2021 Lampiran X & XI) -->
   <div class="modal-backdrop" id="formKeberatanModal" role="dialog" aria-modal="true" aria-labelledby="formKeberatanTitle">
     <div class="modal-dialog modal-lg">
       <div class="modal-head">
-        <h3 id="formKeberatanTitle">Form Pengajuan Keberatan</h3>
+        <h3 id="formKeberatanTitle">Form Pengajuan Keberatan Informasi Publik</h3>
         <button type="button" class="modal-close" data-close-modal="formKeberatanModal" aria-label="Tutup">&times;</button>
       </div>
       <form id="keberatanForm" novalidate>
         <div class="modal-body">
-          <div class="form-grid">
-            <div class="form-field" data-field="kodePermohonan">
-              <label class="form-label" for="kodePermohonan">Kode Permohonan Informasi <span class="req">*</span></label>
-              <input type="text" id="kodePermohonan" name="kodePermohonan" class="form-control" placeholder="Contoh: PMKB2501" required style="text-transform:uppercase;" />
-              <p class="field-hint">Masukkan kode bukti dari pengajuan permohonan informasi sebelumnya.</p>
-              <span class="field-error">Kode permohonan informasi wajib diisi (minimal 4 karakter).</span>
+          <!-- Bagian 1: Data Permohonan & Alasan Keberatan -->
+          <div class="form-section-block">
+            <div class="form-section-head">
+              <span class="section-badge">1</span>
+              <h4>Alasan Keberatan &amp; Informasi yang Diminta</h4>
             </div>
-
-            <div class="form-field" data-field="alasan">
-              <label class="form-label" for="alasanKeberatan">Alasan Keberatan <span class="req">*</span></label>
-              <select id="alasanKeberatan" name="alasan" class="form-control" required>
-                <option value="">-- Pilih Alasan Keberatan --</option>
-                <option value="Penolakan atas permintaan informasi berdasarkan alasan pengecualian">Penolakan atas permintaan informasi berdasarkan alasan pengecualian</option>
-                <option value="Tidak disediakannya informasi berkala">Tidak disediakannya informasi berkala</option>
-                <option value="Informasi Tidak Ditanggapi">Informasi Tidak Ditanggapi</option>
-                <option value="Permintaan informasi ditanggapi tidak sebagaimana yang diminta">Permintaan informasi ditanggapi tidak sebagaimana yang diminta</option>
-                <option value="Tidak dipenuhinya permintaan informasi">Tidak dipenuhinya permintaan informasi</option>
-                <option value="Biaya yang dikenakan tidak wajar">Biaya yang dikenakan tidak wajar</option>
-                <option value="Informasi disampaikan melebihi jangka waktu yang ditentukan">Informasi disampaikan melebihi jangka waktu yang ditentukan</option>
-              </select>
-              <span class="field-error">Alasan keberatan wajib dipilih.</span>
-            </div>
-
-            <div class="form-field" data-field="namaKuasa">
-              <label class="form-label" for="namaKuasa">Nama Kuasa <span class="req">*</span></label>
-              <input type="text" id="namaKuasa" name="namaKuasa" class="form-control" placeholder="Masukkan nama pemohon / kuasa pemohon" required />
-              <p class="field-hint">Pada tabel publik nama otomatis disensor menjadi inisial demi privasi.</p>
-              <span class="field-error">Nama kuasa / pengaju wajib diisi.</span>
-            </div>
-
-            <div class="form-field" data-field="noHpKuasa">
-              <label class="form-label" for="noHpKuasa">Nomor HP Kuasa <span class="req">*</span></label>
-              <input type="tel" id="noHpKuasa" name="noHpKuasa" class="form-control" placeholder="Contoh: 081234567890" required />
-              <span class="field-error">Nomor HP kuasa wajib diisi dengan benar.</span>
-            </div>
-
-            <div class="form-field span-2" data-field="alamatKuasa">
-              <label class="form-label" for="alamatKuasa">Alamat Kuasa <span class="req">*</span></label>
-              <textarea id="alamatKuasa" name="alamatKuasa" class="form-control" rows="2" placeholder="Masukkan alamat lengkap pemohon / kuasa" required></textarea>
-              <span class="field-error">Alamat kuasa wajib diisi.</span>
-            </div>
-
-            <div class="form-field span-2" data-field="deskripsi">
-              <label class="form-label" for="deskripsiKeberatan">Deskripsi Keberatan <span class="req">*</span></label>
-              <textarea id="deskripsiKeberatan" name="deskripsi" class="form-control" rows="3" placeholder="Uraikan kronologi / kasus posisi keberatan Anda secara jelas" required></textarea>
-              <span class="field-error">Deskripsi keberatan wajib diisi (minimal 5 karakter).</span>
-            </div>
-
-            <div class="form-field span-2" data-field="uploadIdentitas">
-              <label class="form-label" for="uploadIdentitas">Upload Identitas (KTP, Kartu Mahasiswa atau Kartu Lembaga) <span class="req">*</span></label>
-              <div class="upload-dropzone" id="uploadDropzone">
-                <input type="file" id="uploadIdentitas" name="uploadIdentitas" accept="image/jpeg,image/png,.jpg,.jpeg,.png" required />
-                <div class="upload-icon-box" aria-hidden="true">
-                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="17 8 12 3 7 8"></polyline>
-                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                  </svg>
-                </div>
-                <div>
-                  <div class="upload-text-main"><span>Pilih foto identitas</span> atau seret berkas ke sini</div>
-                  <p class="field-hint">Foto berformat JPG atau PNG, ukuran maksimal 10 MB.</p>
-                </div>
+            <div class="form-grid">
+              <div class="form-field span-2" data-field="alasan">
+                <label class="form-label" for="alasanKeberatan">Alasan Pengajuan Keberatan (Pasal 35 UU KIP) <span class="req">*</span></label>
+                <select id="alasanKeberatan" name="alasan" class="form-control" required>
+                  <option value="">-- Pilih Alasan Keberatan --</option>
+                  <option value="Penolakan atas permintaan informasi berdasarkan alasan pengecualian">Penolakan atas permintaan informasi berdasarkan alasan pengecualian</option>
+                  <option value="Tidak disediakannya informasi berkala">Tidak disediakannya informasi berkala</option>
+                  <option value="Informasi Tidak Ditanggapi">Informasi Tidak Ditanggapi</option>
+                  <option value="Permintaan informasi ditanggapi tidak sebagaimana yang diminta">Permintaan informasi ditanggapi tidak sebagaimana yang diminta</option>
+                  <option value="Tidak dipenuhinya permintaan informasi">Tidak dipenuhinya permintaan informasi</option>
+                  <option value="Biaya yang dikenakan tidak wajar">Biaya yang dikenakan tidak wajar</option>
+                  <option value="Informasi disampaikan melebihi jangka waktu yang ditentukan">Informasi disampaikan melebihi jangka waktu yang ditentukan</option>
+                </select>
+                <span class="field-error">Alasan pengajuan keberatan wajib dipilih.</span>
               </div>
-              <div class="upload-preview" id="uploadPreview">
-                <div class="upload-preview-left">
-                  <img id="uploadThumb" class="upload-thumb" alt="Pratinjau identitas" />
-                  <div class="upload-meta">
-                    <div class="upload-filename" id="uploadFileName"></div>
-                    <div class="upload-filesize" id="uploadFileSize"></div>
+
+              <div class="form-field span-2" data-field="kodePermohonan">
+                <label class="form-label" for="kodePermohonan">
+                  <span>Nomor / Kode Pendaftaran Permohonan Informasi</span>
+                  <span class="req" id="kodePermReqStar">*</span>
+                  <span class="opt-tag" id="kodePermOptTag" style="display:none;">(Opsional untuk alasan informasi berkala)</span>
+                </label>
+                <input type="text" id="kodePermohonan" name="kodePermohonan" class="form-control" placeholder="Contoh: PMKB2501" style="text-transform:uppercase;" />
+                <p class="field-hint" id="kodePermHint">Masukkan kode bukti dari pengajuan permohonan informasi sebelumnya.</p>
+                <span class="field-error">Nomor/kode pendaftaran permohonan informasi wajib diisi (minimal 4 karakter).</span>
+              </div>
+
+              <div class="form-field span-2" data-field="informasiDiminta">
+                <label class="form-label" for="informasiDiminta">Informasi Publik yang Diminta <span class="req">*</span></label>
+                <textarea id="informasiDiminta" name="informasiDiminta" class="form-control" rows="2" placeholder="Sebutkan rincian informasi publik yang dimohonkan sebelumnya" required></textarea>
+                <span class="field-error">Informasi publik yang diminta wajib diisi.</span>
+              </div>
+
+              <div class="form-field span-2" data-field="tujuan">
+                <label class="form-label" for="tujuanPenggunaan">Tujuan Penggunaan Informasi Publik <span class="req">*</span></label>
+                <textarea id="tujuanPenggunaan" name="tujuan" class="form-control" rows="2" placeholder="Jelaskan tujuan penggunaan informasi publik tersebut" required></textarea>
+                <span class="field-error">Tujuan penggunaan informasi publik wajib diisi.</span>
+              </div>
+
+              <div class="form-field span-2" data-field="deskripsi">
+                <label class="form-label" for="deskripsiKeberatan">Kasus Posisi / Deskripsi Keberatan <span class="req">*</span></label>
+                <textarea id="deskripsiKeberatan" name="deskripsi" class="form-control" rows="3" placeholder="Uraikan kronologi atau kasus posisi alasan keberatan Anda secara jelas" required></textarea>
+                <span class="field-error">Kasus posisi / deskripsi keberatan wajib diisi (minimal 5 karakter).</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bagian 2: Identitas Pemohon (Wajib - Lampiran X PerKI 1/2021) -->
+          <div class="form-section-block">
+            <div class="form-section-head">
+              <span class="section-badge">2</span>
+              <h4>Identitas Pemohon Informasi</h4>
+            </div>
+            <div class="form-grid">
+              <div class="form-field" data-field="namaPemohon">
+                <label class="form-label" for="namaPemohon">Nama Lengkap Pemohon <span class="req">*</span></label>
+                <input type="text" id="namaPemohon" name="namaPemohon" class="form-control" placeholder="Masukkan nama lengkap pemohon" required />
+                <p class="field-hint">Pada tabel publik otomatis disensor menjadi inisial (M***).</p>
+                <span class="field-error">Nama lengkap pemohon wajib diisi.</span>
+              </div>
+
+              <div class="form-field" data-field="pekerjaanPemohon">
+                <label class="form-label" for="pekerjaanPemohon">Pekerjaan Pemohon <span class="req">*</span></label>
+                <input type="text" id="pekerjaanPemohon" name="pekerjaanPemohon" class="form-control" placeholder="Contoh: Wiraswasta, Mahasiswa, Pegawai Swasta" required />
+                <span class="field-error">Pekerjaan pemohon wajib diisi.</span>
+              </div>
+
+              <div class="form-field" data-field="noHpPemohon">
+                <label class="form-label" for="noHpPemohon">Nomor HP / Telepon Pemohon <span class="req">*</span></label>
+                <input type="tel" id="noHpPemohon" name="noHpPemohon" class="form-control" placeholder="Contoh: 081234567890" required />
+                <span class="field-error">Nomor HP aktif pemohon wajib diisi dengan benar.</span>
+              </div>
+
+              <div class="form-field" data-field="emailPemohon">
+                <label class="form-label" for="emailPemohon">Email Pemohon <span class="req">*</span></label>
+                <input type="email" id="emailPemohon" name="emailPemohon" class="form-control" placeholder="contoh@email.com (bukti registrasi dikirim ke sini)" required />
+                <span class="field-error">Alamat email valid wajib diisi.</span>
+              </div>
+
+              <div class="form-field span-2" data-field="alamatPemohon">
+                <label class="form-label" for="alamatPemohon">Alamat Lengkap Pemohon <span class="req">*</span></label>
+                <textarea id="alamatPemohon" name="alamatPemohon" class="form-control" rows="2" placeholder="Masukkan alamat lengkap pemohon sesuai identitas" required></textarea>
+                <span class="field-error">Alamat lengkap pemohon wajib diisi.</span>
+              </div>
+
+              <div class="form-field span-2" data-field="uploadIdentitas">
+                <label class="form-label" for="uploadIdentitas">Upload Identitas Pemohon (KTP, Suket Disdukcapil, Kartu Mahasiswa atau Kartu Lembaga) <span class="req">*</span></label>
+                <div class="upload-dropzone" id="uploadDropzone">
+                  <input type="file" id="uploadIdentitas" name="uploadIdentitas" accept="image/jpeg,image/png,.jpg,.jpeg,.png" required />
+                  <div class="upload-icon-box" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-text-main"><span>Pilih foto identitas</span> atau seret berkas ke sini</div>
+                    <p class="field-hint">Foto berformat JPG atau PNG, ukuran maksimal 10 MB (dijaga privat).</p>
                   </div>
                 </div>
-                <button type="button" class="btn-remove-file" id="removeFileBtn">Hapus</button>
+                <div class="upload-preview" id="uploadPreview">
+                  <div class="upload-preview-left">
+                    <img id="uploadThumb" class="upload-thumb" alt="Pratinjau identitas" />
+                    <div class="upload-meta">
+                      <div class="upload-filename" id="uploadFileName"></div>
+                      <div class="upload-filesize" id="uploadFileSize"></div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn-remove-file" id="removeFileBtn">Hapus</button>
+                </div>
+                <span class="field-error" id="uploadErrorMsg">Foto identitas (JPG/PNG, maks. 10 MB) wajib diunggah.</span>
               </div>
-              <span class="field-error" id="uploadErrorMsg">Foto identitas (JPG/PNG, maks. 10 MB) wajib diunggah.</span>
+            </div>
+          </div>
+
+          <!-- Bagian 3: Identitas Kuasa Pemohon (Opsional - Pasal 39 ayat 4 & Lampiran X PerKI 1/2021) -->
+          <div class="form-section-block">
+            <div class="form-section-head">
+              <span class="section-badge">3</span>
+              <h4>Identitas Kuasa Pemohon <span class="opt-tag">(Hanya jika dikuasakan)</span></h4>
+            </div>
+            <label class="check-card" for="dikuasakanCheck">
+              <input type="checkbox" id="dikuasakanCheck" name="dikuasakan" />
+              <span>Pengajuan keberatan ini dikuasakan kepada pihak lain (wajib melampirkan Surat Kuasa Khusus bermeterai)</span>
+            </label>
+
+            <div class="kuasa-panel" id="kuasaPanel">
+              <div class="form-grid">
+                <div class="form-field" data-field="namaKuasa">
+                  <label class="form-label" for="namaKuasa">Nama Lengkap Kuasa Pemohon <span class="req">*</span></label>
+                  <input type="text" id="namaKuasa" name="namaKuasa" class="form-control" placeholder="Masukkan nama lengkap kuasa pemohon" />
+                  <span class="field-error">Nama kuasa pemohon wajib diisi.</span>
+                </div>
+
+                <div class="form-field" data-field="noHpKuasa">
+                  <label class="form-label" for="noHpKuasa">Nomor HP Kuasa Pemohon <span class="req">*</span></label>
+                  <input type="tel" id="noHpKuasa" name="noHpKuasa" class="form-control" placeholder="Contoh: 081234567890" />
+                  <span class="field-error">Nomor HP kuasa wajib diisi dengan benar.</span>
+                </div>
+
+                <div class="form-field span-2" data-field="alamatKuasa">
+                  <label class="form-label" for="alamatKuasa">Alamat Lengkap Kuasa Pemohon <span class="req">*</span></label>
+                  <textarea id="alamatKuasa" name="alamatKuasa" class="form-control" rows="2" placeholder="Masukkan alamat lengkap penerima kuasa"></textarea>
+                  <span class="field-error">Alamat kuasa pemohon wajib diisi.</span>
+                </div>
+
+                <div class="form-field span-2" data-field="uploadSuratKuasa">
+                  <label class="form-label" for="uploadSuratKuasa">Upload Surat Kuasa Khusus Bermeterai (Pasal 39 ayat 4 PerKI 1/2021) <span class="req">*</span></label>
+                  <div class="upload-dropzone" id="kuasaDropzone">
+                    <input type="file" id="uploadSuratKuasa" name="uploadSuratKuasa" accept="application/pdf,image/jpeg,image/png,.pdf,.jpg,.jpeg,.png" />
+                    <div class="upload-icon-box" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="upload-text-main"><span>Pilih berkas Surat Kuasa Khusus</span> atau seret ke sini</div>
+                      <p class="field-hint">Format PDF, JPG, atau PNG, ukuran maksimal 10 MB.</p>
+                    </div>
+                  </div>
+                  <div class="upload-preview" id="kuasaPreview">
+                    <div class="upload-preview-left">
+                      <img id="kuasaThumb" class="upload-thumb" alt="Pratinjau surat kuasa" />
+                      <div id="kuasaPdfBadge" class="upload-pdf-badge">PDF</div>
+                      <div class="upload-meta">
+                        <div class="upload-filename" id="kuasaFileName"></div>
+                        <div class="upload-filesize" id="kuasaFileSize"></div>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-file" id="removeKuasaBtn">Hapus</button>
+                  </div>
+                  <span class="field-error" id="kuasaErrorMsg">Surat Kuasa Khusus bermeterai (PDF/JPG/PNG, maks. 10 MB) wajib diunggah.</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -840,12 +857,12 @@
 
       /* ======================================================================
          KONFIGURASI GOOGLE APPS SCRIPT & CLOUDFLARE TURNSTILE
-         (Bisa memakai URL /exec dan Site Key yang SAMA dengan Form Permohonan Informasi)
+         (Pakai URL /exec dan Site Key yang SAMA dengan Form Permohonan Informasi)
          ====================================================================== */
       const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzg85YY-ul4u6CFJFq0EAtz5WXTnNniTpKxWfQdFULXbhWXgJWSOt93NzWlwjx-k0148A/exec";
       // Isi Site Key Cloudflare Turnstile (boleh pakai Site Key yang SAMA dari widget tlr13.github.io).
       // AMAN ditaruh di sini. JANGAN pernah taruh Secret Key di sini (Secret Key hanya di Apps Script).
-      const TURNSTILE_SITE_KEY = "https://script.google.com/macros/s/AKfycbzg85YY-ul4u6CFJFq0EAtz5WXTnNniTpKxWfQdFULXbhWXgJWSOt93NzWlwjx-k0148A/exec";
+      const TURNSTILE_SITE_KEY = "0x4AAAAAAGKTi7ZN7MldA0Zz";
 
       function sensorNamaInisial(nama) {
         const cleaned = String(nama || "").trim();
@@ -860,20 +877,26 @@
       }
 
       const INITIAL_KEBERATAN = [
-        { kode: "PKKB2601", tanggal: "18 November 2026", kodePermohonan: "PMKB2501", alasan: "Informasi Tidak Ditanggapi", namaKuasa: sensorNamaInisial("Setiawan Pratama"), deskripsi: "Permohonan informasi realisasi penerimaan pajak daerah belum menerima tanggapan melebihi batas waktu 10 hari kerja.", status: "Pengajuan Keberatan Diproses" },
-        { kode: "PKKB2602", tanggal: "14 November 2026", kodePermohonan: "PMKB2502", alasan: "Permintaan informasi ditanggapi tidak sebagaimana yang diminta", namaKuasa: sensorNamaInisial("Maria Magdalena"), deskripsi: "Data yang disampaikan baru mencakup sebagian kecamatan dan belum sesuai rincian permohonan awal.", status: "Pengajuan Keberatan Selesai" },
-        { kode: "PKKB2603", tanggal: "10 November 2026", kodePermohonan: "PMKB2503", alasan: "Informasi disampaikan melebihi jangka waktu yang ditentukan", namaKuasa: sensorNamaInisial("Budi Santoso"), deskripsi: "Pengajuan keberatan atas keterlambatan penyampaian salinan dokumen prosedur pelayanan pajak daerah.", status: "Pengajuan Keberatan Dikirim" }
+        { kode: "PKKB2601", tanggal: "18 November 2026", kodePermohonan: "PMKB2501", namaPemohon: sensorNamaInisial("Setiawan Pratama"), pekerjaan: "Wiraswasta", namaKuasa: "-", informasiDiminta: "Data realisasi penerimaan pajak daerah Tahun 2025", tujuan: "Sebagai bahan kajian transparansi pendapatan daerah", alasan: "Informasi Tidak Ditanggapi", deskripsi: "Permohonan informasi belum menerima tanggapan tertulis melebihi batas waktu 10 hari kerja.", status: "Pengajuan Keberatan Diproses" },
+        { kode: "PKKB2602", tanggal: "14 November 2026", kodePermohonan: "PMKB2502", namaPemohon: sensorNamaInisial("Maria Magdalena"), pekerjaan: "Mahasiswa", namaKuasa: sensorNamaInisial("Andi Wijaya"), informasiDiminta: "Rekapitulasi piutang dan capaian PBB-P2 per kecamatan", tujuan: "Penelitian tugas akhir / skripsi", alasan: "Permintaan informasi ditanggapi tidak sebagaimana yang diminta", deskripsi: "Data yang disampaikan baru mencakup sebagian kecamatan dan belum sesuai rincian permohonan awal.", status: "Pengajuan Keberatan Selesai" },
+        { kode: "PKKB2603", tanggal: "10 November 2026", kodePermohonan: "-", namaPemohon: sensorNamaInisial("Budi Santoso"), pekerjaan: "Karyawan Swasta", namaKuasa: "-", informasiDiminta: "Laporan berkala kinerja layanan pajak daerah Semester I", tujuan: "Pemantauan layanan publik", alasan: "Tidak disediakannya informasi berkala", deskripsi: "Dokumen informasi berkala semester berjalan belum tersedia pada laman resmi.", status: "Pengajuan Keberatan Dikirim" }
       ];
 
-      const STORAGE_KEY = "ppid_bapenda_kubar_keberatan_v1";
+      const STORAGE_KEY = "ppid_bapenda_kubar_keberatan_v2";
+      function normalizeItem(item) {
+        const pemohon = (item && (item.namaPemohon || item.namaKuasa)) || "-";
+        const kuasa = (item && item.namaPemohon && item.namaKuasa && item.namaKuasa !== "-") ? sensorNamaInisial(item.namaKuasa) : "-";
+        return Object.assign({}, item, {
+          namaPemohon: sensorNamaInisial(pemohon),
+          namaKuasa: kuasa
+        });
+      }
       function loadKeberatan() {
         try {
           const saved = localStorage.getItem(STORAGE_KEY);
           if (saved) {
             const parsed = JSON.parse(saved);
-            if (Array.isArray(parsed)) {
-              return parsed.map((item) => Object.assign({}, item, { namaKuasa: sensorNamaInisial(item && item.namaKuasa) }));
-            }
+            if (Array.isArray(parsed)) return parsed.map(normalizeItem);
           }
         } catch (_) {}
         return WEBHOOK_URL ? [] : INITIAL_KEBERATAN.slice();
@@ -886,6 +909,10 @@
       let uploadedFileDataUrl = "";
       let uploadedFileNameVal = "";
       let uploadedFileValid = false;
+
+      let kuasaFileDataUrl = "";
+      let kuasaFileNameVal = "";
+      let kuasaFileValid = false;
 
       function escapeHtml(str) {
         return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
@@ -902,8 +929,55 @@
           toast.style.opacity = "0";
           toast.style.transition = "opacity 0.2s ease";
           setTimeout(() => toast.remove(), 220);
-        }, 3400);
+        }, 3600);
       }
+
+      /* Aksesibilitas Penyandang Disabilitas */
+      let fontScale = 100;
+      let isSpeaking = false;
+      const a11yContrastBtn = document.getElementById("a11yContrastBtn");
+      const a11ySpeakBtn = document.getElementById("a11ySpeakBtn");
+      function applyFontScale() { document.documentElement.style.fontSize = (16 * fontScale / 100) + "px"; }
+      document.getElementById("a11yIncBtn")?.addEventListener("click", () => { fontScale = Math.min(125, fontScale + 8); applyFontScale(); });
+      document.getElementById("a11yDecBtn")?.addEventListener("click", () => { fontScale = Math.max(88, fontScale - 8); applyFontScale(); });
+      a11yContrastBtn?.addEventListener("click", () => {
+        const active = document.body.classList.toggle("high-contrast");
+        a11yContrastBtn.classList.toggle("active", active);
+        a11yContrastBtn.setAttribute("aria-pressed", String(active));
+      });
+      function stopSpeech() {
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+        isSpeaking = false;
+        a11ySpeakBtn?.classList.remove("active");
+        a11ySpeakBtn?.setAttribute("aria-pressed", "false");
+        if (a11ySpeakBtn) a11ySpeakBtn.textContent = "Baca Suara";
+      }
+      a11ySpeakBtn?.addEventListener("click", () => {
+        if (!("speechSynthesis" in window)) { showToast("Browser Anda tidak mendukung fitur baca suara.", "error"); return; }
+        if (isSpeaking) { stopSpeech(); return; }
+        const selected = window.getSelection ? String(window.getSelection()).trim() : "";
+        const textToRead = selected ||
+          "Halaman Permohonan Keberatan Informasi Publik PPID Pelaksana Badan Pendapatan Daerah Kabupaten Kutai Barat. " +
+          "Keberatan ditujukan kepada Atasan PPID yaitu Kepala Bapenda Kabupaten Kutai Barat dengan tanggapan tertulis paling lambat 30 hari kerja. " +
+          "Tekan tombol Ajukan Keberatan untuk mengisi formulir pengajuan keberatan.";
+        const utter = new SpeechSynthesisUtterance(textToRead);
+        utter.lang = "id-ID";
+        utter.onend = stopSpeech;
+        utter.onerror = stopSpeech;
+        isSpeaking = true;
+        a11ySpeakBtn.classList.add("active");
+        a11ySpeakBtn.setAttribute("aria-pressed", "true");
+        a11ySpeakBtn.textContent = "Hentikan Suara";
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utter);
+      });
+      document.getElementById("a11yResetBtn")?.addEventListener("click", () => {
+        fontScale = 100; applyFontScale();
+        document.body.classList.remove("high-contrast");
+        a11yContrastBtn?.classList.remove("active");
+        a11yContrastBtn?.setAttribute("aria-pressed", "false");
+        stopSpeech();
+      });
 
       /* Modals */
       function openModal(id) { document.getElementById(id)?.classList.add("open"); }
@@ -924,7 +998,42 @@
         });
       });
 
-      /* Upload Identitas + Kompresi Otomatis Foto Besar */
+      /* Logika Kondisional PerKI 1/2021:
+         1. Jika alasan = "Tidak disediakannya informasi berkala" -> Kode Permohonan jadi OPSIONAL (Lampiran XI)
+         2. Jika dicentang "dikuasakan" -> Panel Kuasa + Surat Kuasa Khusus Bermeterai wajib diisi (Pasal 39 ayat 4) */
+      const alasanEl = document.getElementById("alasanKeberatan");
+      const kodePermReqStar = document.getElementById("kodePermReqStar");
+      const kodePermOptTag = document.getElementById("kodePermOptTag");
+      const kodePermHint = document.getElementById("kodePermHint");
+      const dikuasakanCheck = document.getElementById("dikuasakanCheck");
+      const kuasaPanel = document.getElementById("kuasaPanel");
+
+      function isKodePermohonanRequired() {
+        return !(alasanEl && alasanEl.value === "Tidak disediakannya informasi berkala");
+      }
+      function updateConditionalFields() {
+        const kodeWajib = isKodePermohonanRequired();
+        if (kodePermReqStar) kodePermReqStar.style.display = kodeWajib ? "inline" : "none";
+        if (kodePermOptTag) kodePermOptTag.style.display = kodeWajib ? "none" : "inline";
+        if (kodePermHint) {
+          kodePermHint.textContent = kodeWajib
+            ? "Masukkan kode bukti dari pengajuan permohonan informasi sebelumnya."
+            : "Sesuai Lampiran XI PerKI No. 1/2021, kolom ini tidak wajib diisi untuk keberatan informasi berkala.";
+        }
+        if (!kodeWajib) document.querySelector('[data-field="kodePermohonan"]')?.classList.remove("has-error");
+
+        const kuasaOn = Boolean(dikuasakanCheck && dikuasakanCheck.checked);
+        kuasaPanel?.classList.toggle("active", kuasaOn);
+        if (!kuasaOn) {
+          ["namaKuasa", "noHpKuasa", "alamatKuasa", "uploadSuratKuasa"].forEach((f) => {
+            document.querySelector(`[data-field="${f}"]`)?.classList.remove("has-error");
+          });
+        }
+      }
+      alasanEl?.addEventListener("change", updateConditionalFields);
+      dikuasakanCheck?.addEventListener("change", updateConditionalFields);
+
+      /* Upload Identitas & Surat Kuasa Khusus (PDF/JPG/PNG) + Kompresi Foto Besar */
       const uploadInput = document.getElementById("uploadIdentitas");
       const uploadDropzone = document.getElementById("uploadDropzone");
       const uploadPreview = document.getElementById("uploadPreview");
@@ -935,19 +1044,21 @@
       const uploadErrorMsg = document.getElementById("uploadErrorMsg");
       const uploadFieldEl = document.querySelector('[data-field="uploadIdentitas"]');
 
+      const kuasaInput = document.getElementById("uploadSuratKuasa");
+      const kuasaDropzone = document.getElementById("kuasaDropzone");
+      const kuasaPreview = document.getElementById("kuasaPreview");
+      const kuasaThumb = document.getElementById("kuasaThumb");
+      const kuasaPdfBadge = document.getElementById("kuasaPdfBadge");
+      const kuasaFileName = document.getElementById("kuasaFileName");
+      const kuasaFileSize = document.getElementById("kuasaFileSize");
+      const removeKuasaBtn = document.getElementById("removeKuasaBtn");
+      const kuasaErrorMsg = document.getElementById("kuasaErrorMsg");
+      const kuasaFieldEl = document.querySelector('[data-field="uploadSuratKuasa"]');
+
       function formatBytes(bytes) {
         if (bytes < 1024) return bytes + " B";
         if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
         return (bytes / (1024 * 1024)).toFixed(2) + " MB";
-      }
-      function clearUploadedFile() {
-        uploadInput.value = "";
-        uploadedFileValid = false;
-        uploadedFileDataUrl = "";
-        uploadedFileNameVal = "";
-        uploadPreview.classList.remove("active");
-        uploadDropzone.style.display = "flex";
-        uploadThumb.src = "";
       }
       function compressIfNeeded(dataUrl, rawSize, callback) {
         if (rawSize <= 1.5 * 1024 * 1024) { callback(dataUrl); return; }
@@ -962,6 +1073,16 @@
         };
         img.onerror = () => callback(dataUrl);
         img.src = dataUrl;
+      }
+
+      function clearUploadedFile() {
+        uploadInput.value = "";
+        uploadedFileValid = false;
+        uploadedFileDataUrl = "";
+        uploadedFileNameVal = "";
+        uploadPreview.classList.remove("active");
+        uploadDropzone.style.display = "flex";
+        uploadThumb.src = "";
       }
       function handleSelectedFile(file) {
         if (!file) { clearUploadedFile(); return; }
@@ -1000,7 +1121,64 @@
       uploadDropzone?.addEventListener("drop", (e) => { if (e.dataTransfer?.files?.[0]) handleSelectedFile(e.dataTransfer.files[0]); });
       removeFileBtn?.addEventListener("click", clearUploadedFile);
 
-      /* Verifikasi Keamanan: Cloudflare Turnstile (otomatis aktif jika TURNSTILE_SITE_KEY diisi) + Fallback Slide To Verify */
+      function clearKuasaFile() {
+        kuasaInput.value = "";
+        kuasaFileValid = false;
+        kuasaFileDataUrl = "";
+        kuasaFileNameVal = "";
+        kuasaPreview.classList.remove("active");
+        kuasaDropzone.style.display = "flex";
+        kuasaThumb.src = "";
+        kuasaThumb.style.display = "none";
+        kuasaPdfBadge.style.display = "none";
+      }
+      function handleKuasaFile(file) {
+        if (!file) { clearKuasaFile(); return; }
+        const isPdf = file.type === "application/pdf" || /\.pdf$/i.test(file.name);
+        const isImg = ["image/jpeg", "image/png"].includes(file.type) || /\.(jpe?g|png)$/i.test(file.name);
+        if (!isPdf && !isImg) {
+          clearKuasaFile();
+          kuasaErrorMsg.textContent = "Format Surat Kuasa tidak didukung. Gunakan PDF, JPG, atau PNG.";
+          kuasaFieldEl.classList.add("has-error");
+          return;
+        }
+        if (file.size > 10 * 1024 * 1024) {
+          clearKuasaFile();
+          kuasaErrorMsg.textContent = "Ukuran Surat Kuasa melebihi batas maksimal 10 MB.";
+          kuasaFieldEl.classList.add("has-error");
+          return;
+        }
+        kuasaFileValid = true;
+        kuasaFileNameVal = file.name;
+        kuasaFieldEl.classList.remove("has-error");
+        kuasaFileName.textContent = file.name;
+        kuasaFileSize.textContent = formatBytes(file.size) + " • Siap diunggah";
+        kuasaDropzone.style.display = "none";
+        kuasaPreview.classList.add("active");
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          if (isPdf) {
+            kuasaFileDataUrl = ev.target.result;
+            kuasaThumb.style.display = "none";
+            kuasaPdfBadge.style.display = "flex";
+          } else {
+            compressIfNeeded(ev.target.result, file.size, (finalDataUrl) => {
+              kuasaFileDataUrl = finalDataUrl;
+              kuasaPdfBadge.style.display = "none";
+              kuasaThumb.style.display = "block";
+              kuasaThumb.src = finalDataUrl;
+            });
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+      kuasaInput?.addEventListener("change", (e) => handleKuasaFile(e.target.files[0]));
+      ["dragenter", "dragover"].forEach((evt) => kuasaDropzone?.addEventListener(evt, (e) => { e.preventDefault(); kuasaDropzone.classList.add("drag-over"); }));
+      ["dragleave", "drop"].forEach((evt) => kuasaDropzone?.addEventListener(evt, (e) => { e.preventDefault(); kuasaDropzone.classList.remove("drag-over"); }));
+      kuasaDropzone?.addEventListener("drop", (e) => { if (e.dataTransfer?.files?.[0]) handleKuasaFile(e.dataTransfer.files[0]); });
+      removeKuasaBtn?.addEventListener("click", clearKuasaFile);
+
+      /* Verifikasi Keamanan: Cloudflare Turnstile + Fallback Slide To Verify */
       const turnstileBox = document.getElementById("turnstileBox");
       const turnstileStatusEl = document.getElementById("turnstileStatus");
       const slideVerifyContainer = document.getElementById("slideVerifyContainer");
@@ -1022,7 +1200,6 @@
         turnstileStatusEl.textContent = message || "";
         turnstileStatusEl.classList.toggle("is-error", Boolean(isError));
       }
-
       function renderTurnstileWidget() {
         const modalOpen = document.getElementById("formKeberatanModal")?.classList.contains("open");
         if (!useTurnstile || !modalOpen || !window.turnstile || turnstileWidgetId !== null) return;
@@ -1059,13 +1236,9 @@
           setTurnstileStatus("Gagal menampilkan widget Cloudflare Turnstile. Muat ulang halaman.", true);
         }
       }
-
       function ensureTurnstileReady() {
         if (!useTurnstile) return;
-        if (window.turnstile) {
-          renderTurnstileWidget();
-          return;
-        }
+        if (window.turnstile) { renderTurnstileWidget(); return; }
         if (turnstileScriptLoaded) return;
         turnstileScriptLoaded = true;
         window.__ppidKeberatanTurnstileLoad = renderTurnstileWidget;
@@ -1080,7 +1253,6 @@
         };
         document.head.appendChild(cfScript);
       }
-
       if (useTurnstile) {
         if (turnstileBox) turnstileBox.style.display = "flex";
         if (slideVerifyContainer) slideVerifyContainer.style.display = "none";
@@ -1090,7 +1262,7 @@
       function openFormModal() {
         openModal("formKeberatanModal");
         ensureTurnstileReady();
-        setTimeout(() => document.getElementById("kodePermohonan")?.focus(), 80);
+        setTimeout(() => document.getElementById("alasanKeberatan")?.focus(), 80);
       }
       [document.getElementById("openFormTopBtn"), document.getElementById("openFormCardBtn")].forEach((btn) => {
         btn?.addEventListener("click", openFormModal);
@@ -1170,6 +1342,8 @@
       resetFormBtn?.addEventListener("click", () => {
         keberatanForm.reset();
         clearUploadedFile();
+        clearKuasaFile();
+        updateConditionalFields();
         resetVerification();
         clearAllErrors();
         showToast("Formulir keberatan telah dikosongkan.");
@@ -1178,14 +1352,24 @@
       function validateForm() {
         clearAllErrors();
         let firstInvalid = null;
+        const kodeWajib = isKodePermohonanRequired();
+        const kuasaOn = Boolean(dikuasakanCheck && dikuasakanCheck.checked);
         const checks = [
-          { field: "kodePermohonan", valid: document.getElementById("kodePermohonan").value.trim().length >= 4 },
           { field: "alasan", valid: Boolean(document.getElementById("alasanKeberatan").value.trim()) },
-          { field: "namaKuasa", valid: document.getElementById("namaKuasa").value.trim().length >= 2 },
-          { field: "noHpKuasa", valid: /^[0-9+\-\s]{9,18}$/.test(document.getElementById("noHpKuasa").value.trim()) },
-          { field: "alamatKuasa", valid: document.getElementById("alamatKuasa").value.trim().length >= 5 },
+          { field: "kodePermohonan", valid: !kodeWajib || document.getElementById("kodePermohonan").value.trim().length >= 4 },
+          { field: "informasiDiminta", valid: document.getElementById("informasiDiminta").value.trim().length >= 5 },
+          { field: "tujuan", valid: document.getElementById("tujuanPenggunaan").value.trim().length >= 5 },
           { field: "deskripsi", valid: document.getElementById("deskripsiKeberatan").value.trim().length >= 5 },
+          { field: "namaPemohon", valid: document.getElementById("namaPemohon").value.trim().length >= 2 },
+          { field: "pekerjaanPemohon", valid: document.getElementById("pekerjaanPemohon").value.trim().length >= 2 },
+          { field: "noHpPemohon", valid: /^[0-9+\-\s]{9,18}$/.test(document.getElementById("noHpPemohon").value.trim()) },
+          { field: "emailPemohon", valid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("emailPemohon").value.trim()) },
+          { field: "alamatPemohon", valid: document.getElementById("alamatPemohon").value.trim().length >= 5 },
           { field: "uploadIdentitas", valid: uploadedFileValid },
+          { field: "namaKuasa", valid: !kuasaOn || document.getElementById("namaKuasa").value.trim().length >= 2 },
+          { field: "noHpKuasa", valid: !kuasaOn || /^[0-9+\-\s]{9,18}$/.test(document.getElementById("noHpKuasa").value.trim()) },
+          { field: "alamatKuasa", valid: !kuasaOn || document.getElementById("alamatKuasa").value.trim().length >= 5 },
+          { field: "uploadSuratKuasa", valid: !kuasaOn || kuasaFileValid },
           { field: "verify", valid: useTurnstile ? Boolean(turnstileToken) : isVerified }
         ];
         checks.forEach((c) => {
@@ -1209,24 +1393,38 @@
         submitFormBtn.disabled = true;
         submitBtnText.innerHTML = '<span class="spinner" style="display:inline-block;vertical-align:-3px;margin-right:8px;"></span>Proses...';
 
+        const kuasaOn = Boolean(dikuasakanCheck && dikuasakanCheck.checked);
+        const kodePermVal = document.getElementById("kodePermohonan").value.trim().toUpperCase();
         const newItem = {
           jenis: "keberatan",
           kode: generateKodeKeberatan(),
           tanggal: formatTodayDate(),
-          kodePermohonan: document.getElementById("kodePermohonan").value.trim().toUpperCase(),
+          kodePermohonan: kodePermVal || "-",
           alasan: document.getElementById("alasanKeberatan").value,
-          namaKuasa: document.getElementById("namaKuasa").value.trim(),
-          alamatKuasa: document.getElementById("alamatKuasa").value.trim(),
-          noHpKuasa: document.getElementById("noHpKuasa").value.trim(),
+          informasiDiminta: document.getElementById("informasiDiminta").value.trim(),
+          tujuan: document.getElementById("tujuanPenggunaan").value.trim(),
           deskripsi: document.getElementById("deskripsiKeberatan").value.trim(),
+          namaPemohon: document.getElementById("namaPemohon").value.trim(),
+          pekerjaanPemohon: document.getElementById("pekerjaanPemohon").value.trim(),
+          noHpPemohon: document.getElementById("noHpPemohon").value.trim(),
+          emailPemohon: document.getElementById("emailPemohon").value.trim(),
+          alamatPemohon: document.getElementById("alamatPemohon").value.trim(),
+          dikuasakan: kuasaOn,
+          namaKuasa: kuasaOn ? document.getElementById("namaKuasa").value.trim() : "",
+          noHpKuasa: kuasaOn ? document.getElementById("noHpKuasa").value.trim() : "",
+          alamatKuasa: kuasaOn ? document.getElementById("alamatKuasa").value.trim() : "",
           status: "Pengajuan Keberatan Dikirim",
           fileIdentitasNama: uploadedFileNameVal,
           fileIdentitasBase64: uploadedFileDataUrl,
+          fileSuratKuasaNama: kuasaOn ? kuasaFileNameVal : "",
+          fileSuratKuasaBase64: kuasaOn ? kuasaFileDataUrl : "",
           turnstileToken: turnstileToken
         };
 
         try {
           let serverNamaPublik = "";
+          let serverKuasaPublik = "-";
+          let emailTerkirim = false;
           if (WEBHOOK_URL) {
             const resp = await fetch(WEBHOOK_URL, {
               method: "POST",
@@ -1238,6 +1436,8 @@
               throw new Error(resJson.error || "Gagal menyimpan pengajuan keberatan ke Google Sheets");
             }
             if (resJson && resJson.namaPublik) serverNamaPublik = resJson.namaPublik;
+            if (resJson && resJson.namaKuasaPublik) serverKuasaPublik = resJson.namaKuasaPublik;
+            if (resJson && resJson.emailTerkirim) emailTerkirim = true;
           } else {
             await new Promise((r) => setTimeout(r, 750));
           }
@@ -1246,8 +1446,12 @@
             kode: newItem.kode,
             tanggal: newItem.tanggal,
             kodePermohonan: newItem.kodePermohonan,
+            namaPemohon: serverNamaPublik || sensorNamaInisial(newItem.namaPemohon),
+            pekerjaan: newItem.pekerjaanPemohon,
+            namaKuasa: kuasaOn ? (serverKuasaPublik !== "-" ? serverKuasaPublik : sensorNamaInisial(newItem.namaKuasa)) : "-",
+            informasiDiminta: newItem.informasiDiminta,
+            tujuan: newItem.tujuan,
             alasan: newItem.alasan,
-            namaKuasa: serverNamaPublik || sensorNamaInisial(newItem.namaKuasa),
             deskripsi: newItem.deskripsi,
             status: newItem.status
           };
@@ -1259,10 +1463,12 @@
 
           keberatanForm.reset();
           clearUploadedFile();
+          clearKuasaFile();
+          updateConditionalFields();
           resetVerification();
           closeModal("formKeberatanModal");
           showToast("Pengajuan keberatan berhasil dikirim! Kode: " + newItem.kode, "success");
-          showDetailModal(publicRecord, true);
+          showDetailModal(publicRecord, true, emailTerkirim);
         } catch (err) {
           resetVerification();
           showToast((err && err.message) ? err.message : "Gagal mengirim pengajuan keberatan ke server. Coba lagi.", "error");
@@ -1279,16 +1485,23 @@
         if (/proses/i.test(status)) return "status-diproses";
         return "status-dikirim";
       }
-      function renderDetailHtml(item, isReceipt) {
+      function renderDetailHtml(item, isReceipt, emailTerkirim) {
+        const emailNote = emailTerkirim
+          ? `<div class="receipt-email-note">Salinan tanda bukti registrasi keberatan juga telah dikirim otomatis ke email Anda.</div>`
+          : "";
         const receiptHtml = isReceipt
           ? `<div class="receipt-box">
               <div style="font-weight:700;color:var(--teal-600);font-size:0.93rem;">Pengajuan Keberatan Berhasil Dikirim</div>
-              <div style="font-size:0.81rem;color:var(--slate-700);margin-top:3px;">Simpan kode keberatan berikut untuk memantau status tindak lanjut Atasan PPID Bapenda Kutai Barat:</div>
+              <div style="font-size:0.81rem;color:var(--slate-700);margin-top:3px;">Simpan nomor registrasi keberatan berikut. Atasan PPID (Kepala Bapenda Kab. Kutai Barat) memberikan tanggapan tertulis paling lambat 30 hari kerja:</div>
               <div class="receipt-code-row">
                 <span class="receipt-code">${escapeHtml(item.kode)}</span>
                 <button type="button" class="btn-detail-row" id="copyCodeBtn">Salin Kode</button>
               </div>
+              ${emailNote}
             </div>` : "";
+        const kuasaRow = (item.namaKuasa && item.namaKuasa !== "-")
+          ? `<tr><th>Kuasa Pemohon</th><td>${escapeHtml(sensorNamaInisial(item.namaKuasa))}</td></tr>`
+          : "";
         return `
           ${receiptHtml}
           <div class="detail-section-title">Status Pengajuan Keberatan</div>
@@ -1296,18 +1509,25 @@
             <span class="code-badge">${escapeHtml(item.kode)}</span>
             <span class="status-badge ${statusBadgeClass(item.status)}">${escapeHtml(item.status)}</span>
           </div>
-          <div class="detail-section-title">Rincian Keberatan</div>
+          <div class="detail-section-title">Identitas Pengaju</div>
           <table class="detail-kv-table">
             <tr><th>Tanggal Pengajuan</th><td>${escapeHtml(item.tanggal)}</td></tr>
             <tr><th>Kode Permohonan Informasi</th><td><span class="code-badge">${escapeHtml(item.kodePermohonan || "-")}</span></td></tr>
+            <tr><th>Nama Pemohon</th><td>${escapeHtml(sensorNamaInisial(item.namaPemohon))}</td></tr>
+            <tr><th>Pekerjaan</th><td>${escapeHtml(item.pekerjaan || "-")}</td></tr>
+            ${kuasaRow}
+          </table>
+          <div class="detail-section-title">Rincian Keberatan</div>
+          <table class="detail-kv-table">
             <tr><th>Alasan Keberatan</th><td>${escapeHtml(item.alasan)}</td></tr>
-            <tr><th>Nama Kuasa / Pengaju</th><td>${escapeHtml(sensorNamaInisial(item.namaKuasa))}</td></tr>
-            <tr><th>Deskripsi Keberatan</th><td>${escapeHtml(item.deskripsi)}</td></tr>
+            <tr><th>Informasi Publik yang Diminta</th><td>${escapeHtml(item.informasiDiminta || "-")}</td></tr>
+            <tr><th>Tujuan Penggunaan Informasi</th><td>${escapeHtml(item.tujuan || "-")}</td></tr>
+            <tr><th>Kasus Posisi / Deskripsi</th><td>${escapeHtml(item.deskripsi)}</td></tr>
           </table>`;
       }
-      function showDetailModal(item, isReceipt) {
+      function showDetailModal(item, isReceipt, emailTerkirim) {
         document.getElementById("detailModalTitle").textContent = isReceipt ? "Bukti Pengajuan Keberatan" : "Detail Pengajuan Keberatan";
-        document.getElementById("detailModalBody").innerHTML = renderDetailHtml(item, isReceipt);
+        document.getElementById("detailModalBody").innerHTML = renderDetailHtml(item, isReceipt, emailTerkirim);
         document.getElementById("copyCodeBtn")?.addEventListener("click", () => {
           navigator.clipboard?.writeText(item.kode).catch(() => {});
           showToast("Kode keberatan " + item.kode + " disalin.", "success");
@@ -1320,22 +1540,23 @@
         const resultEl = document.getElementById("cekStatusResult");
         const found = keberatanData.find((r) =>
           String(r.kode || "").toUpperCase() === code ||
-          String(r.kodePermohonan || "").toUpperCase() === code
+          (r.kodePermohonan && r.kodePermohonan !== "-" && String(r.kodePermohonan).toUpperCase() === code)
         );
         if (!found) {
           resultEl.innerHTML = `<div style="padding:13px;border-radius:8px;background:var(--red-100);color:var(--red-600);font-size:0.85rem;font-weight:600;">Kode "${escapeHtml(code)}" tidak ditemukan dalam daftar pengajuan keberatan.</div>`;
           return;
         }
-        resultEl.innerHTML = renderDetailHtml(found, false);
+        resultEl.innerHTML = renderDetailHtml(found, false, false);
       });
 
       /* DataGrid Permohonan Keberatan */
       const COLUMNS = [
         { key: "no", label: "#", sortable: false, groupable: false, visible: true },
         { key: "kode", label: "Kode", sortable: true, groupable: false, visible: true },
+        { key: "tanggal", label: "Tanggal", sortable: true, groupable: false, visible: true },
         { key: "alasan", label: "Alasan Keberatan", sortable: true, groupable: true, visible: true },
-        { key: "namaKuasa", label: "Nama Kuasa", sortable: true, groupable: false, visible: true },
-        { key: "deskripsi", label: "Deskripsi Keberatan", sortable: false, groupable: false, visible: true },
+        { key: "namaPemohon", label: "Pemohon", sortable: true, groupable: false, visible: true },
+        { key: "deskripsi", label: "Kasus Posisi", sortable: false, groupable: false, visible: true },
         { key: "status", label: "Status", sortable: true, groupable: true, visible: true },
         { key: "aksi", label: "Aksi", sortable: false, groupable: false, visible: true }
       ];
@@ -1375,7 +1596,9 @@
           String(item.kode || "").toLowerCase().includes(q) ||
           String(item.kodePermohonan || "").toLowerCase().includes(q) ||
           String(item.alasan || "").toLowerCase().includes(q) ||
+          String(item.namaPemohon || "").toLowerCase().includes(q) ||
           String(item.namaKuasa || "").toLowerCase().includes(q) ||
+          String(item.informasiDiminta || "").toLowerCase().includes(q) ||
           String(item.deskripsi || "").toLowerCase().includes(q) ||
           String(item.status || "").toLowerCase().includes(q)
         );
@@ -1389,8 +1612,14 @@
         switch (colKey) {
           case "no": return `<td>${index + 1}</td>`;
           case "kode": return `<td><span class="code-badge">${escapeHtml(item.kode)}</span></td>`;
+          case "tanggal": return `<td style="white-space:nowrap;">${escapeHtml(item.tanggal || "-")}</td>`;
           case "alasan": return `<td>${escapeHtml(item.alasan)}</td>`;
-          case "namaKuasa": return `<td style="white-space:nowrap;"><strong>${escapeHtml(sensorNamaInisial(item.namaKuasa))}</strong></td>`;
+          case "namaPemohon": {
+            const kuasaSub = (item.namaKuasa && item.namaKuasa !== "-")
+              ? `<span class="kuasa-sub">Kuasa: ${escapeHtml(sensorNamaInisial(item.namaKuasa))}</span>`
+              : "";
+            return `<td style="white-space:nowrap;"><strong>${escapeHtml(sensorNamaInisial(item.namaPemohon))}</strong>${kuasaSub}</td>`;
+          }
           case "deskripsi": return `<td><div class="td-clamp" title="${escapeHtml(item.deskripsi)}">${escapeHtml(item.deskripsi)}</div></td>`;
           case "status": return `<td><span class="status-badge ${statusBadgeClass(item.status)}">${escapeHtml(item.status)}</span></td>`;
           case "aksi": return `<td><button type="button" class="btn-detail-row" data-detail-kode="${escapeHtml(item.kode)}">Detail</button></td>`;
@@ -1451,7 +1680,7 @@
         tbodyEl.querySelectorAll("[data-detail-kode]").forEach((btn) => {
           btn.addEventListener("click", () => {
             const found = keberatanData.find((r) => r.kode === btn.getAttribute("data-detail-kode"));
-            if (found) showDetailModal(found, false);
+            if (found) showDetailModal(found, false, false);
           });
         });
 
@@ -1505,7 +1734,7 @@
           const resp = await fetch(getUrl);
           const json = await resp.json();
           if (json && json.ok && Array.isArray(json.data)) {
-            keberatanData = json.data.map((item) => Object.assign({}, item, { namaKuasa: sensorNamaInisial(item && item.namaKuasa) }));
+            keberatanData = json.data.map(normalizeItem);
             saveKeberatan(keberatanData);
             gridState.page = 1;
             renderGrid();
@@ -1529,6 +1758,7 @@
         });
       });
 
+      updateConditionalFields();
       renderColumnChooser();
       renderGrid();
       if (WEBHOOK_URL) syncFromGoogleSheets(false);
