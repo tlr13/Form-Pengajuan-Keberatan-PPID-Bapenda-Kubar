@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permohonan Keberatan Informasi Publik - PPID Bapenda Kabupaten Kutai Barat</title>
+  <meta name="description" content="Formulir dan Daftar Pengajuan Keberatan Informasi Publik PPID Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat." />
+  <link rel="preconnect" href="https://challenges.cloudflare.com" />
+  <style>
+    /* ==========================================================================
+       PPID BAPENDA KABUPATEN KUTAI BARAT — Form Pengajuan Keberatan (GitHub Pages)
+       Adaptasi desain & alur PPID Kota Bontang untuk CMS-KUBAR + Google Sheets
+       ========================================================================== */
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      --navy-950: #091d32;
+      --navy-900: #0e2a47;
+      --blue-700: #0d4ea6;
+      --blue-600: #1565c0;
+      --blue-100: #e7f1fd;
+      --blue-50: #f2f7fe;
+
+      --teal-600: #0d856b;
+      --teal-100: #e3f7f1;
+
+      --amber-600: #c27803;
+      --amber-100: #fef3c7;
+
+      --red-600: #dc2626;
+      --red-100: #fee2e2;
+
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --white: #ffffff;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-pill: 9999px;
+
+      --shadow-md: 0 6px 20px rgba(14, 42, 71, 0.07), 0 1px 4px rgba(14, 42, 71, 0.04);
+      --shadow-lg: 0 18px 40px rgba(14, 42, 71, 0.16), 0 4px 12px rgba(14, 42, 71, 0.08);
+
+      margin: 0;
+      padding: 16px;
+      font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--slate-800);
+      background-color: transparent;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font-family: inherit; font-size: inherit; }
+
+    .embed-container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Banner Identitas PPID Bapenda Kutai Barat */
+    .embed-hero {
+      background: linear-gradient(135deg, #0b243e 0%, #124478 58%, #0e6c67 100%);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 22px 26px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      box-shadow: var(--shadow-md);
+    }
+
+    .embed-hero-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .embed-hero h1 {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      line-height: 1.25;
+    }
+
+    .embed-hero p {
+      margin: 3px 0 0;
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .embed-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-hero-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.16s ease;
+    }
+
+    .btn-hero-ghost:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .btn-hero-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 15px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #ffffff;
+      background: #ffffff;
+      color: var(--navy-900);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .btn-hero-solid:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(9, 29, 50, 0.22);
+    }
+
+    /* Info Alur Singkat UU KIP */
+    .notice-strip {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 18px;
+      margin-bottom: 20px;
+      border-radius: var(--radius-md);
+      background: var(--blue-50);
+      border: 1px solid #bfdbfe;
+      color: var(--navy-900);
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .notice-strip svg {
+      width: 19px;
+      height: 19px;
+      color: var(--blue-600);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Surface Cards */
+    .surface-card {
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 20px 26px;
+      border-bottom: 1px solid var(--slate-200);
+      background: linear-gradient(180deg, #ffffff 0%, #fafcff 100%);
+    }
+
+    .card-header-text h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy-900);
+    }
+
+    .card-header-text p {
+      margin: 3px 0 0;
+      font-size: 0.85rem;
+      color: var(--slate-500);
+    }
+
+    .card-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline-list {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--blue-600);
+      background: var(--blue-50);
+      color: var(--blue-700);
+      font-size: 0.83rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .btn-outline-list:hover {
+      background: var(--blue-600);
+      color: var(--white);
+    }
+
+    .btn-outline-list svg { width: 15px; height: 15px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 41px; padding: 9px 18px; border-radius: var(--radius-sm);
+      font-size: 0.87rem; font-weight: 600; cursor: pointer; border: 1px solid transparent; transition: all 0.16s ease;
+    }
+    .btn-secondary { background: var(--white); border-color: var(--slate-300); color: var(--slate-700); }
+    .btn-secondary:hover { background: var(--slate-100); border-color: var(--slate-400); color: var(--slate-900); }
+    .btn-primary { background: var(--blue-600); color: var(--white); box-shadow: 0 3px 10px rgba(21, 101, 192, 0.24); }
+    .btn-primary:hover:not(:disabled) { background: var(--blue-700); transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.72; cursor: not-allowed; }
+    .spinner {
+      width: 15px; height: 15px; border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff; border-radius: 50%; animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Form Controls */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 15px 18px;
+    }
+
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field.span-2 { grid-column: 1 / -1; }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .req { color: var(--red-600); font-weight: 700; }
+
+    .form-control {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 13px;
+      border: 1px solid var(--slate-300);
+      border-radius: var(--radius-sm);
+      background-color: var(--white);
+      color: var(--slate-900);
+      font-size: 0.89rem;
+      line-height: 1.45;
+      transition: border-color 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .form-control::placeholder { color: var(--slate-400); }
+    .form-control:hover { border-color: var(--slate-400); }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--blue-600);
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.15);
+    }
+
+    textarea.form-control { resize: vertical; min-height: 86px; }
+
+    select.form-control {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 38px;
+      cursor: pointer;
+    }
+
+    .form-field.has-error .form-control,
+    .form-field.has-error .upload-dropzone,
+    .form-field.has-error .slide-verify-track {
+      border-color: var(--red-600);
+      background-color: #fffafa;
+    }
+
+    .field-error { display: none; font-size: 0.77rem; font-weight: 500; color: var(--red-600); }
+    .form-field.has-error .field-error { display: block; }
+    .field-hint { font-size: 0.77rem; color: var(--slate-500); margin: 0; }
+
+    /* File Upload */
+    .upload-dropzone {
+      position: relative;
+      border: 1.5px dashed var(--slate-300);
+      border-radius: var(--radius-md);
+      background: var(--slate-50);
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: border-color 0.18s ease, background-color 0.18s ease;
+    }
+    .upload-dropzone:hover, .upload-dropzone.drag-over { border-color: var(--blue-600); background: var(--blue-50); }
+    .upload-dropzone input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+    .upload-icon-box {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: var(--white); border: 1px solid var(--slate-200);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--blue-600); flex-shrink: 0;
+    }
+    .upload-text-main { font-size: 0.86rem; font-weight: 600; color: var(--slate-800); }
+    .upload-text-main span { color: var(--blue-600); text-decoration: underline; }
+    .upload-preview {
+      display: none; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 11px 14px; border: 1px solid var(--slate-200); border-radius: var(--radius-md); background: var(--white);
+    }
+    .upload-preview.active { display: flex; }
+    .upload-preview-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .upload-thumb { width: 54px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid var(--slate-200); flex-shrink: 0; }
+    .upload-meta { min-width: 0; }
+    .upload-filename { font-size: 0.84rem; font-weight: 600; color: var(--slate-800); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 320px; }
+    .upload-filesize { font-size: 0.75rem; color: var(--teal-600); font-weight: 600; }
+    .btn-remove-file {
+      padding: 6px 11px; border-radius: 6px; border: 1px solid #fecaca;
+      background: #fef2f2; color: var(--red-600); font-size: 0.78rem; font-weight: 600; cursor: pointer;
+    }
+    .btn-remove-file:hover { background: var(--red-600); color: var(--white); }
+
+    /* Verifikasi Keamanan (Cloudflare Turnstile & Fallback Slide To Verify) */
+    .verify-block {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--slate-200);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .turnstile-box { display: flex; flex-direction: column; gap: 6px; min-height: 66px; }
+    .turnstile-status { font-size: 0.78rem; font-weight: 600; color: var(--amber-600); min-height: 0; }
+    .turnstile-status.is-error { color: var(--red-600); }
+    .slide-verify-wrapper { max-width: 350px; width: 100%; }
+    .slide-verify-track {
+      position: relative; height: 46px; border-radius: var(--radius-sm);
+      background: #edf2f7; border: 1px solid var(--slate-300);
+      overflow: hidden; user-select: none; touch-action: none;
+    }
+    .slide-verify-fill { position: absolute; top: 0; left: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #16a34a 0%, #0d9488 100%); }
+    .slide-verify-label {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-size: 0.84rem; font-weight: 600; color: var(--slate-600); pointer-events: none;
+    }
+    .slide-verify-track.verified { border-color: var(--teal-600); }
+    .slide-verify-track.verified .slide-verify-label { color: var(--white); padding-right: 42px; }
+    .slide-verify-knob {
+      position: absolute; top: 2px; left: 2px; width: 42px; height: 40px;
+      border-radius: 5px; border: 1px solid var(--slate-300); background: var(--white);
+      color: var(--blue-600); display: flex; align-items: center; justify-content: center;
+      cursor: grab; box-shadow: 0 2px 6px rgba(14, 42, 71, 0.14); z-index: 2;
+    }
+    .slide-verify-knob:active { cursor: grabbing; }
+    .slide-verify-track.verified .slide-verify-knob { color: var(--teal-600); border-color: rgba(255, 255, 255, 0.7); cursor: default; }
+
+    /* DataGrid */
+    .dx-toolbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding: 13px 18px; background: var(--slate-50); border-bottom: 1px solid var(--slate-200);
+    }
+    .dx-group-panel {
+      flex: 1 1 260px; min-height: 36px; padding: 6px 12px; border: 1px dashed var(--slate-300);
+      border-radius: var(--radius-sm); background: var(--white); display: flex; align-items: center;
+      gap: 8px; flex-wrap: wrap; font-size: 0.8rem; color: var(--slate-400);
+    }
+    .dx-group-panel.drop-active { border-color: var(--blue-600); background: var(--blue-50); color: var(--blue-700); }
+    .group-chip {
+      display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px;
+      border-radius: var(--radius-pill); background: var(--blue-100); color: var(--blue-700); font-size: 0.77rem; font-weight: 600;
+    }
+    .group-chip button { border: none; background: transparent; color: inherit; cursor: pointer; font-weight: 700; padding: 0; }
+    .dx-tools-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; position: relative; }
+    .dx-search-input {
+      height: 36px; width: 210px; padding: 0 12px; border: 1px solid var(--slate-300);
+      border-radius: var(--radius-sm); font-size: 0.83rem; background: var(--white); color: var(--slate-800);
+    }
+    .dx-search-input:focus { outline: none; border-color: var(--blue-600); box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.14); }
+    .dx-icon-btn {
+      display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px;
+      border: 1px solid var(--slate-300); border-radius: var(--radius-sm); background: var(--white);
+      color: var(--slate-700); font-size: 0.8rem; font-weight: 600; cursor: pointer;
+    }
+    .dx-icon-btn:hover { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+    .dx-icon-btn svg { width: 14px; height: 14px; }
+    .column-chooser-popover {
+      position: absolute; top: calc(100% + 6px); right: 0; width: 230px;
+      background: var(--white); border: 1px solid var(--slate-200); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg); padding: 12px; z-index: 40; display: none;
+    }
+    .column-chooser-popover.open { display: block; }
+    .column-chooser-title { font-size: 0.76rem; font-weight: 700; color: var(--navy-900); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--slate-100); }
+    .column-chooser-item { display: flex; align-items: center; gap: 8px; padding: 5px 4px; font-size: 0.83rem; color: var(--slate-700); cursor: pointer; }
+    .column-chooser-item input { accent-color: var(--blue-600); }
+
+    .dx-table-wrap { position: relative; width: 100%; overflow-x: auto; }
+    .dx-loading-overlay { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.78); display: none; align-items: center; justify-content: center; z-index: 10; }
+    .dx-loading-overlay.active { display: flex; }
+    .dx-loading-pill {
+      display: inline-flex; align-items: center; gap: 10px; padding: 9px 16px;
+      border-radius: var(--radius-pill); background: var(--white); border: 1px solid var(--slate-200);
+      box-shadow: var(--shadow-md); font-size: 0.84rem; font-weight: 600; color: var(--navy-900);
+    }
+    .dx-loading-pill .spinner { border-color: var(--blue-100); border-top-color: var(--blue-600); }
+    .dx-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; text-align: left; }
+    .dx-table thead th {
+      background: #f8fafc; color: var(--slate-700); font-weight: 700; font-size: 0.79rem;
+      padding: 11px 13px; border-bottom: 1px solid var(--slate-200); white-space: nowrap; user-select: none;
+    }
+    .dx-table thead th.sortable { cursor: pointer; }
+    .dx-table thead th.sortable:hover { background: var(--blue-50); color: var(--blue-700); }
+    .th-content { display: inline-flex; align-items: center; gap: 5px; }
+    .sort-ind { font-size: 0.69rem; color: var(--slate-400); }
+    .dx-table tbody td { padding: 11px 13px; border-bottom: 1px solid var(--slate-100); color: var(--slate-700); vertical-align: top; }
+    .dx-table tbody tr:hover { background-color: #f8fbff; }
+    .dx-group-row td { background: #eef4fb !important; color: var(--navy-900) !important; font-weight: 700; font-size: 0.82rem; padding: 8px 13px !important; }
+
+    .code-badge {
+      display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.77rem; font-weight: 700; padding: 3px 8px; border-radius: 5px;
+      background: var(--slate-100); color: var(--navy-900); border: 1px solid var(--slate-200);
+    }
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px;
+      border-radius: var(--radius-pill); font-size: 0.75rem; font-weight: 700; white-space: nowrap;
+    }
+    .status-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .status-selesai { background: var(--teal-100); color: var(--teal-600); }
+    .status-dikirim { background: var(--blue-100); color: var(--blue-700); }
+    .status-diproses { background: var(--amber-100); color: var(--amber-600); }
+    .status-ditolak { background: var(--red-100); color: var(--red-600); }
+    .btn-detail-row {
+      display: inline-flex; align-items: center; padding: 5px 10px; border-radius: 6px;
+      border: 1px solid var(--blue-600); background: var(--white); color: var(--blue-600);
+      font-size: 0.77rem; font-weight: 600; cursor: pointer;
+    }
+    .btn-detail-row:hover { background: var(--blue-600); color: var(--white); }
+    .td-clamp { max-width: 300px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .dx-pager {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+      padding: 12px 18px; background: var(--white); border-top: 1px solid var(--slate-200);
+    }
+    .dx-page-sizes, .dx-page-nums { display: flex; align-items: center; gap: 4px; }
+    .dx-size-btn, .dx-page-btn {
+      min-width: 30px; height: 30px; padding: 0 8px; border-radius: 6px;
+      border: 1px solid transparent; background: transparent; color: var(--slate-600);
+      font-size: 0.81rem; font-weight: 600; cursor: pointer;
+    }
+    .dx-size-btn:hover, .dx-page-btn:hover:not(:disabled) { background: var(--slate-100); color: var(--navy-900); }
+    .dx-size-btn.active, .dx-page-btn.active { background: var(--blue-600); color: var(--white); }
+    .dx-page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .dx-pages-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .dx-page-info { font-size: 0.79rem; color: var(--slate-500); }
+
+    /* Info Strip Bawah */
+    .kubar-info-bar {
+      margin-top: 20px;
+      padding: 14px 18px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--slate-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.81rem;
+      color: var(--slate-600);
+    }
+    .kubar-info-bar strong { color: var(--navy-900); }
+
+    /* Modals & Toasts (align-items: flex-start agar selalu tampil jelas di dalam iframe CMS) */
+    .modal-backdrop {
+      position: fixed; inset: 0; background: rgba(9, 29, 50, 0.56); backdrop-filter: blur(3px);
+      z-index: 1200; display: none; align-items: flex-start; justify-content: center;
+      padding: 20px 14px; overflow-y: auto;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-dialog {
+      width: 100%; max-width: 620px; background: var(--white);
+      border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden;
+      display: flex; flex-direction: column; margin-bottom: 24px;
+    }
+    .modal-dialog.modal-lg { max-width: 740px; }
+    .modal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 22px; background: var(--navy-900); color: var(--white); }
+    .modal-head h3 { margin: 0; font-size: 1.02rem; font-weight: 700; }
+    .modal-close { border: none; background: rgba(255, 255, 255, 0.14); color: var(--white); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; font-size: 1.05rem; line-height: 1; }
+    .modal-body { padding: 20px 22px; }
+    .modal-foot { padding: 13px 22px; border-top: 1px solid var(--slate-200); background: var(--slate-50); display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+    .detail-section-title { font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue-600); margin: 16px 0 8px; }
+    .detail-section-title:first-child { margin-top: 0; }
+    .detail-kv-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .detail-kv-table tr { border-bottom: 1px solid var(--slate-100); }
+    .detail-kv-table th { width: 38%; text-align: left; padding: 8px 10px 8px 0; color: var(--slate-500); font-weight: 600; vertical-align: top; }
+    .detail-kv-table td { padding: 8px 0; color: var(--slate-800); font-weight: 500; }
+    .receipt-box { background: var(--teal-100); border: 1px solid #a7f3d0; border-radius: var(--radius-md); padding: 14px 16px; text-align: center; margin-bottom: 16px; }
+    .receipt-code-row { display: inline-flex; align-items: center; gap: 10px; margin-top: 8px; background: var(--white); padding: 7px 14px; border-radius: var(--radius-sm); border: 1px solid #6ee7b7; }
+    .receipt-code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 1.2rem; font-weight: 800; letter-spacing: 0.08em; color: var(--navy-900); }
+
+    .toast-stack { position: fixed; top: 14px; right: 14px; z-index: 1400; display: flex; flex-direction: column; gap: 8px; max-width: 340px; }
+    .toast { padding: 11px 15px; border-radius: var(--radius-md); background: var(--navy-900); color: var(--white); font-size: 0.84rem; font-weight: 500; box-shadow: var(--shadow-lg); }
+    .toast.toast-success { background: var(--teal-600); }
+    .toast.toast-error { background: var(--red-600); }
+
+    @media (max-width: 720px) {
+      body { padding: 10px; }
+      .card-header, .modal-body, .modal-head, .modal-foot { padding: 16px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .modal-foot { justify-content: stretch; }
+      .modal-foot .btn { flex: 1 1 auto; }
+      .dx-search-input, .dx-tools-right { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="embed-container">
+    <!-- Banner Identitas PPID Bapenda Kabupaten Kutai Barat -->
+    <div class="embed-hero">
+      <div class="embed-hero-left">
+        <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M24 3L6 10V23.5C6 34.4 13.7 42.3 24 45C34.3 42.3 42 34.4 42 23.5V10L24 3Z" fill="#FFFFFF" fill-opacity="0.14" stroke="#FFFFFF" stroke-width="1.6"/>
+          <polygon points="24,10 25.8,14.5 30.5,14.8 26.9,17.8 28,22.4 24,19.9 20,22.4 21.1,17.8 17.5,14.8 22.2,14.5" fill="#FBBF24"/>
+          <path d="M12.5 28.5C15.5 26 18.8 26 21.5 28.5C24.2 31 27.5 31 30.5 28.5C32.3 27 34 26.7 35.6 27.4C34.2 33.4 29.7 37.9 24 39.6C18.3 37.9 13.8 33.4 12.5 28.5Z" fill="#10B981"/>
+          <path d="M15 32.5C17.6 30.8 20.5 30.8 23.2 32.5C25.8 34.2 28.8 34.2 31.8 32.5" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <h1>Permohonan Keberatan — PPID Bapenda Kabupaten Kutai Barat</h1>
+          <p>Badan Pendapatan Daerah Pemerintah Kabupaten Kutai Barat &bull; Tanaa Purai Ngeriman</p>
+        </div>
+      </div>
+      <div class="embed-hero-actions">
+        <button type="button" class="btn-hero-solid" id="openFormTopBtn">+ Ajukan Keberatan</button>
+        <button type="button" class="btn-hero-ghost" id="openCekStatusTop">Cek Status Keberatan</button>
+      </div>
+    </div>
+
+    <!-- Info Singkat Hak Keberatan -->
+    <div class="notice-strip">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <div>
+        Sesuai <strong>UU Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik</strong>, pemohon informasi berhak mengajukan keberatan tertulis kepada Atasan PPID Bapenda Kabupaten Kutai Barat apabila permohonan informasi tidak ditanggapi, ditolak, atau tidak sesuai permintaan. Klik tombol <strong>Ajukan Keberatan</strong> untuk mengisi formulir.
+      </div>
+    </div>
+
+    <!-- Daftar Permohonan Keberatan -->
+    <section class="surface-card" id="daftar-keberatan-section" aria-labelledby="daftarHeading">
+      <div class="card-header">
+        <div class="card-header-text">
+          <h2 id="daftarHeading">Permohonan Keberatan</h2>
+          <p>Transparansi daftar pengajuan keberatan informasi publik PPID Bapenda Kabupaten Kutai Barat.</p>
+        </div>
+        <div class="card-header-actions">
+          <button type="button" class="btn-outline-list" id="openCekStatusFromTable">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Cek Status</span>
+          </button>
+          <button type="button" class="btn btn-primary" id="openFormCardBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Ajukan Keberatan</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dx-toolbar">
+        <div class="dx-group-panel" id="dxGroupPanel" aria-label="Area pengelompokan kolom">
+          <span id="dxGroupPlaceholder">Drag header column to grouping</span>
+        </div>
+
+        <div class="dx-tools-right">
+          <input type="search" id="dxSearchInput" class="dx-search-input" placeholder="Cari keberatan..." aria-label="Cari daftar permohonan keberatan" />
+          <button type="button" class="dx-icon-btn" id="columnChooserBtn" aria-expanded="false" aria-controls="columnChooserPopover">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="18" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="18" rx="1"></rect>
+            </svg>
+            <span>Column Chooser</span>
+          </button>
+          <button type="button" class="dx-icon-btn" id="dxRefreshBtn" title="Muat ulang data">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+          </button>
+          <div class="column-chooser-popover" id="columnChooserPopover">
+            <div class="column-chooser-title">Column Chooser</div>
+            <div id="columnChooserList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dx-table-wrap">
+        <div class="dx-loading-overlay" id="dxLoadingOverlay">
+          <div class="dx-loading-pill">
+            <span class="spinner"></span>
+            <span>Loading...</span>
+          </div>
+        </div>
+        <table class="dx-table" id="keberatanTable">
+          <thead id="keberatanThead"></thead>
+          <tbody id="keberatanTbody"></tbody>
+        </table>
+      </div>
+
+      <div class="dx-pager">
+        <div class="dx-page-sizes" role="group" aria-label="Jumlah baris per halaman">
+          <button type="button" class="dx-size-btn active" data-size="5">5</button>
+          <button type="button" class="dx-size-btn" data-size="10">10</button>
+          <button type="button" class="dx-size-btn" data-size="15">15</button>
+          <button type="button" class="dx-size-btn" data-size="30">30</button>
+        </div>
+        <div class="dx-pages-right">
+          <span class="dx-page-info" id="dxPageInfo"></span>
+          <div class="dx-page-nums" id="dxPageNums"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info Sekretariat Ringkas PPID Bapenda Kutai Barat -->
+    <div class="kubar-info-bar">
+      <div><strong>PPID Badan Pendapatan Daerah (BAPENDA) Kabupaten Kutai Barat:</strong> Komplek Perkantoran Pemkab Kutai Barat, Kec. Barong Tongkok, Sendawar</div>
+      <div><strong>Pemerintah Kabupaten Kutai Barat</strong></div>
+    </div>
+  </div>
+
+  <!-- Modal Form Pengajuan Keberatan -->
+  <div class="modal-backdrop" id="formKeberatanModal" role="dialog" aria-modal="true" aria-labelledby="formKeberatanTitle">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-head">
+        <h3 id="formKeberatanTitle">Form Pengajuan Keberatan</h3>
+        <button type="button" class="modal-close" data-close-modal="formKeberatanModal" aria-label="Tutup">&times;</button>
+      </div>
+      <form id="keberatanForm" novalidate>
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-field" data-field="kodePermohonan">
+              <label class="form-label" for="kodePermohonan">Kode Permohonan Informasi <span class="req">*</span></label>
+              <input type="text" id="kodePermohonan" name="kodePermohonan" class="form-control" placeholder="Contoh: PMKB2501" required style="text-transform:uppercase;" />
+              <p class="field-hint">Masukkan kode bukti dari pengajuan permohonan informasi sebelumnya.</p>
+              <span class="field-error">Kode permohonan informasi wajib diisi (minimal 4 karakter).</span>
+            </div>
+
+            <div class="form-field" data-field="alasan">
+              <label class="form-label" for="alasanKeberatan">Alasan Keberatan <span class="req">*</span></label>
+              <select id="alasanKeberatan" name="alasan" class="form-control" required>
+                <option value="">-- Pilih Alasan Keberatan --</option>
+                <option value="Penolakan atas permintaan informasi berdasarkan alasan pengecualian">Penolakan atas permintaan informasi berdasarkan alasan pengecualian</option>
+                <option value="Tidak disediakannya informasi berkala">Tidak disediakannya informasi berkala</option>
+                <option value="Informasi Tidak Ditanggapi">Informasi Tidak Ditanggapi</option>
+                <option value="Permintaan informasi ditanggapi tidak sebagaimana yang diminta">Permintaan informasi ditanggapi tidak sebagaimana yang diminta</option>
+                <option value="Tidak dipenuhinya permintaan informasi">Tidak dipenuhinya permintaan informasi</option>
+                <option value="Biaya yang dikenakan tidak wajar">Biaya yang dikenakan tidak wajar</option>
+                <option value="Informasi disampaikan melebihi jangka waktu yang ditentukan">Informasi disampaikan melebihi jangka waktu yang ditentukan</option>
+              </select>
+              <span class="field-error">Alasan keberatan wajib dipilih.</span>
+            </div>
+
+            <div class="form-field" data-field="namaKuasa">
+              <label class="form-label" for="namaKuasa">Nama Kuasa <span class="req">*</span></label>
+              <input type="text" id="namaKuasa" name="namaKuasa" class="form-control" placeholder="Masukkan nama pemohon / kuasa pemohon" required />
+              <p class="field-hint">Pada tabel publik nama otomatis disensor menjadi inisial demi privasi.</p>
+              <span class="field-error">Nama kuasa / pengaju wajib diisi.</span>
+            </div>
+
+            <div class="form-field" data-field="noHpKuasa">
+              <label class="form-label" for="noHpKuasa">Nomor HP Kuasa <span class="req">*</span></label>
+              <input type="tel" id="noHpKuasa" name="noHpKuasa" class="form-control" placeholder="Contoh: 081234567890" required />
+              <span class="field-error">Nomor HP kuasa wajib diisi dengan benar.</span>
+            </div>
+
+            <div class="form-field span-2" data-field="alamatKuasa">
+              <label class="form-label" for="alamatKuasa">Alamat Kuasa <span class="req">*</span></label>
+              <textarea id="alamatKuasa" name="alamatKuasa" class="form-control" rows="2" placeholder="Masukkan alamat lengkap pemohon / kuasa" required></textarea>
+              <span class="field-error">Alamat kuasa wajib diisi.</span>
+            </div>
+
+            <div class="form-field span-2" data-field="deskripsi">
+              <label class="form-label" for="deskripsiKeberatan">Deskripsi Keberatan <span class="req">*</span></label>
+              <textarea id="deskripsiKeberatan" name="deskripsi" class="form-control" rows="3" placeholder="Uraikan kronologi / kasus posisi keberatan Anda secara jelas" required></textarea>
+              <span class="field-error">Deskripsi keberatan wajib diisi (minimal 5 karakter).</span>
+            </div>
+
+            <div class="form-field span-2" data-field="uploadIdentitas">
+              <label class="form-label" for="uploadIdentitas">Upload Identitas (KTP, Kartu Mahasiswa atau Kartu Lembaga) <span class="req">*</span></label>
+              <div class="upload-dropzone" id="uploadDropzone">
+                <input type="file" id="uploadIdentitas" name="uploadIdentitas" accept="image/jpeg,image/png,.jpg,.jpeg,.png" required />
+                <div class="upload-icon-box" aria-hidden="true">
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="upload-text-main"><span>Pilih foto identitas</span> atau seret berkas ke sini</div>
+                  <p class="field-hint">Foto berformat JPG atau PNG, ukuran maksimal 10 MB.</p>
+                </div>
+              </div>
+              <div class="upload-preview" id="uploadPreview">
+                <div class="upload-preview-left">
+                  <img id="uploadThumb" class="upload-thumb" alt="Pratinjau identitas" />
+                  <div class="upload-meta">
+                    <div class="upload-filename" id="uploadFileName"></div>
+                    <div class="upload-filesize" id="uploadFileSize"></div>
+                  </div>
+                </div>
+                <button type="button" class="btn-remove-file" id="removeFileBtn">Hapus</button>
+              </div>
+              <span class="field-error" id="uploadErrorMsg">Foto identitas (JPG/PNG, maks. 10 MB) wajib diunggah.</span>
+            </div>
+          </div>
+
+          <!-- Verifikasi Keamanan (Cloudflare Turnstile / Fallback Slide To Verify) -->
+          <div class="verify-block">
+            <div class="form-field" data-field="verify">
+              <label class="form-label" id="dragVerifyTitle">Verifikasi Keamanan <span class="req">*</span></label>
+              <div class="turnstile-box" id="turnstileBox" style="display:none;">
+                <div id="turnstileContainer"></div>
+                <div class="turnstile-status" id="turnstileStatus" aria-live="polite"></div>
+              </div>
+              <div class="slide-verify-wrapper" id="slideVerifyContainer">
+                <div class="slide-verify-track" id="slideVerifyTrack" role="group" aria-labelledby="dragVerifyTitle">
+                  <div class="slide-verify-fill" id="slideVerifyFill"></div>
+                  <div class="slide-verify-label" id="slideVerifyLabel">Slide To Verify</div>
+                  <button type="button" class="slide-verify-knob" id="slideVerifyKnob" aria-label="Geser ke kanan untuk verifikasi">
+                    <svg id="slideVerifyIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="13 17 18 12 13 7"></polyline>
+                      <polyline points="6 17 11 12 6 7"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <span class="field-error" id="verifyErrorMsg">Silakan selesaikan verifikasi keamanan terlebih dahulu.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-foot">
+          <button type="button" class="btn btn-secondary" id="resetFormBtn">Kosongkan</button>
+          <button type="button" class="btn btn-secondary" data-close-modal="formKeberatanModal">Tutup</button>
+          <button type="submit" class="btn btn-primary" id="submitFormBtn">
+            <span id="submitBtnText">Kirim</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Detail / Bukti Pengajuan Keberatan Modal -->
+  <div class="modal-backdrop" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="detailModalTitle">Detail Pengajuan Keberatan</h3>
+        <button type="button" class="modal-close" data-close-modal="detailModal" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body" id="detailModalBody"></div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-primary" data-close-modal="detailModal">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cek Status Keberatan Modal -->
+  <div class="modal-backdrop" id="cekStatusModal" role="dialog" aria-modal="true" aria-labelledby="cekStatusTitle">
+    <div class="modal-dialog">
+      <div class="modal-head">
+        <h3 id="cekStatusTitle">Cek Status Pengajuan Keberatan</h3>
+        <button type="button" class="modal-close" data-close-modal="cekStatusModal" aria-label="Tutup">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="margin-top:0;color:var(--slate-600);font-size:0.86rem;">Masukkan <strong>Kode Keberatan</strong> (misal <code>PKKB...</code>) atau <strong>Kode Permohonan Informasi</strong> (misal <code>PMKB...</code>) untuk memantau statusnya.</p>
+        <form id="cekStatusForm" style="display:flex;gap:10px;margin-bottom:14px;">
+          <input type="text" id="cekStatusInput" class="form-control" placeholder="Masukkan kode keberatan / kode permohonan..." required style="text-transform:uppercase;" />
+          <button type="submit" class="btn btn-primary" style="flex-shrink:0;">Cek</button>
+        </form>
+        <div id="cekStatusResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ======================================================================
+         KONFIGURASI GOOGLE APPS SCRIPT & CLOUDFLARE TURNSTILE
+         (Bisa memakai URL /exec dan Site Key yang SAMA dengan Form Permohonan Informasi)
+         ====================================================================== */
+      const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzg85YY-ul4u6CFJFq0EAtz5WXTnNniTpKxWfQdFULXbhWXgJWSOt93NzWlwjx-k0148A/exec";
+      // Isi Site Key Cloudflare Turnstile (boleh pakai Site Key yang SAMA dari widget tlr13.github.io).
+      // AMAN ditaruh di sini. JANGAN pernah taruh Secret Key di sini (Secret Key hanya di Apps Script).
+      const TURNSTILE_SITE_KEY = "https://script.google.com/macros/s/AKfycbzg85YY-ul4u6CFJFq0EAtz5WXTnNniTpKxWfQdFULXbhWXgJWSOt93NzWlwjx-k0148A/exec";
+
+      function sensorNamaInisial(nama) {
+        const cleaned = String(nama || "").trim();
+        if (!cleaned || cleaned === "-") return "-";
+        const words = cleaned.split(/\s+/);
+        const hasil = [];
+        for (let i = 0; i < words.length; i++) {
+          const match = words[i].match(/[A-Za-z0-9]/);
+          if (match) hasil.push(match[0].toUpperCase() + "***");
+        }
+        return hasil.length ? hasil.join(" ") : "-";
+      }
+
+      const INITIAL_KEBERATAN = [
+        { kode: "PKKB2601", tanggal: "18 November 2026", kodePermohonan: "PMKB2501", alasan: "Informasi Tidak Ditanggapi", namaKuasa: sensorNamaInisial("Setiawan Pratama"), deskripsi: "Permohonan informasi realisasi penerimaan pajak daerah belum menerima tanggapan melebihi batas waktu 10 hari kerja.", status: "Pengajuan Keberatan Diproses" },
+        { kode: "PKKB2602", tanggal: "14 November 2026", kodePermohonan: "PMKB2502", alasan: "Permintaan informasi ditanggapi tidak sebagaimana yang diminta", namaKuasa: sensorNamaInisial("Maria Magdalena"), deskripsi: "Data yang disampaikan baru mencakup sebagian kecamatan dan belum sesuai rincian permohonan awal.", status: "Pengajuan Keberatan Selesai" },
+        { kode: "PKKB2603", tanggal: "10 November 2026", kodePermohonan: "PMKB2503", alasan: "Informasi disampaikan melebihi jangka waktu yang ditentukan", namaKuasa: sensorNamaInisial("Budi Santoso"), deskripsi: "Pengajuan keberatan atas keterlambatan penyampaian salinan dokumen prosedur pelayanan pajak daerah.", status: "Pengajuan Keberatan Dikirim" }
+      ];
+
+      const STORAGE_KEY = "ppid_bapenda_kubar_keberatan_v1";
+      function loadKeberatan() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed)) {
+              return parsed.map((item) => Object.assign({}, item, { namaKuasa: sensorNamaInisial(item && item.namaKuasa) }));
+            }
+          }
+        } catch (_) {}
+        return WEBHOOK_URL ? [] : INITIAL_KEBERATAN.slice();
+      }
+      function saveKeberatan(list) {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch (_) {}
+      }
+
+      let keberatanData = loadKeberatan();
+      let uploadedFileDataUrl = "";
+      let uploadedFileNameVal = "";
+      let uploadedFileValid = false;
+
+      function escapeHtml(str) {
+        return String(str ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+      }
+
+      function showToast(message, type) {
+        const stack = document.getElementById("toastStack");
+        if (!stack) return;
+        const toast = document.createElement("div");
+        toast.className = "toast" + (type ? " toast-" + type : "");
+        toast.textContent = message;
+        stack.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          toast.style.transition = "opacity 0.2s ease";
+          setTimeout(() => toast.remove(), 220);
+        }, 3400);
+      }
+
+      /* Modals */
+      function openModal(id) { document.getElementById(id)?.classList.add("open"); }
+      function closeModal(id) { document.getElementById(id)?.classList.remove("open"); }
+      document.querySelectorAll("[data-close-modal]").forEach((btn) => {
+        btn.addEventListener("click", () => closeModal(btn.getAttribute("data-close-modal")));
+      });
+      document.querySelectorAll(".modal-backdrop").forEach((b) => {
+        b.addEventListener("click", (e) => { if (e.target === b) closeModal(b.id); });
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") document.querySelectorAll(".modal-backdrop.open").forEach((m) => closeModal(m.id));
+      });
+      [document.getElementById("openCekStatusTop"), document.getElementById("openCekStatusFromTable")].forEach((btn) => {
+        btn?.addEventListener("click", () => {
+          openModal("cekStatusModal");
+          setTimeout(() => document.getElementById("cekStatusInput")?.focus(), 80);
+        });
+      });
+
+      /* Upload Identitas + Kompresi Otomatis Foto Besar */
+      const uploadInput = document.getElementById("uploadIdentitas");
+      const uploadDropzone = document.getElementById("uploadDropzone");
+      const uploadPreview = document.getElementById("uploadPreview");
+      const uploadThumb = document.getElementById("uploadThumb");
+      const uploadFileName = document.getElementById("uploadFileName");
+      const uploadFileSize = document.getElementById("uploadFileSize");
+      const removeFileBtn = document.getElementById("removeFileBtn");
+      const uploadErrorMsg = document.getElementById("uploadErrorMsg");
+      const uploadFieldEl = document.querySelector('[data-field="uploadIdentitas"]');
+
+      function formatBytes(bytes) {
+        if (bytes < 1024) return bytes + " B";
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+        return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+      }
+      function clearUploadedFile() {
+        uploadInput.value = "";
+        uploadedFileValid = false;
+        uploadedFileDataUrl = "";
+        uploadedFileNameVal = "";
+        uploadPreview.classList.remove("active");
+        uploadDropzone.style.display = "flex";
+        uploadThumb.src = "";
+      }
+      function compressIfNeeded(dataUrl, rawSize, callback) {
+        if (rawSize <= 1.5 * 1024 * 1024) { callback(dataUrl); return; }
+        const img = new Image();
+        img.onload = () => {
+          const maxW = 1600, scale = img.width > maxW ? maxW / img.width : 1;
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.round(img.width * scale);
+          canvas.height = Math.round(img.height * scale);
+          canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+          callback(canvas.toDataURL("image/jpeg", 0.82));
+        };
+        img.onerror = () => callback(dataUrl);
+        img.src = dataUrl;
+      }
+      function handleSelectedFile(file) {
+        if (!file) { clearUploadedFile(); return; }
+        const validTypes = ["image/jpeg", "image/png"];
+        if (!validTypes.includes(file.type) && !/\.(jpe?g|png)$/i.test(file.name)) {
+          clearUploadedFile();
+          uploadErrorMsg.textContent = "Format berkas tidak didukung. Gunakan foto JPG atau PNG.";
+          uploadFieldEl.classList.add("has-error");
+          return;
+        }
+        if (file.size > 10 * 1024 * 1024) {
+          clearUploadedFile();
+          uploadErrorMsg.textContent = "Ukuran berkas melebihi batas maksimal 10 MB.";
+          uploadFieldEl.classList.add("has-error");
+          return;
+        }
+        uploadedFileValid = true;
+        uploadedFileNameVal = file.name;
+        uploadFieldEl.classList.remove("has-error");
+        uploadFileName.textContent = file.name;
+        uploadFileSize.textContent = formatBytes(file.size) + " • Siap diunggah";
+        uploadDropzone.style.display = "none";
+        uploadPreview.classList.add("active");
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          compressIfNeeded(ev.target.result, file.size, (finalDataUrl) => {
+            uploadedFileDataUrl = finalDataUrl;
+            uploadThumb.src = finalDataUrl;
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+      uploadInput?.addEventListener("change", (e) => handleSelectedFile(e.target.files[0]));
+      ["dragenter", "dragover"].forEach((evt) => uploadDropzone?.addEventListener(evt, (e) => { e.preventDefault(); uploadDropzone.classList.add("drag-over"); }));
+      ["dragleave", "drop"].forEach((evt) => uploadDropzone?.addEventListener(evt, (e) => { e.preventDefault(); uploadDropzone.classList.remove("drag-over"); }));
+      uploadDropzone?.addEventListener("drop", (e) => { if (e.dataTransfer?.files?.[0]) handleSelectedFile(e.dataTransfer.files[0]); });
+      removeFileBtn?.addEventListener("click", clearUploadedFile);
+
+      /* Verifikasi Keamanan: Cloudflare Turnstile (otomatis aktif jika TURNSTILE_SITE_KEY diisi) + Fallback Slide To Verify */
+      const turnstileBox = document.getElementById("turnstileBox");
+      const turnstileStatusEl = document.getElementById("turnstileStatus");
+      const slideVerifyContainer = document.getElementById("slideVerifyContainer");
+      const verifyErrorMsg = document.getElementById("verifyErrorMsg");
+      const verifyTrack = document.getElementById("slideVerifyTrack");
+      const verifyFill = document.getElementById("slideVerifyFill");
+      const verifyKnob = document.getElementById("slideVerifyKnob");
+      const verifyLabel = document.getElementById("slideVerifyLabel");
+      const verifyIcon = document.getElementById("slideVerifyIcon");
+      const verifyFieldEl = document.querySelector('[data-field="verify"]');
+      const useTurnstile = Boolean(TURNSTILE_SITE_KEY && TURNSTILE_SITE_KEY.trim());
+      let turnstileToken = "";
+      let turnstileWidgetId = null;
+      let turnstileScriptLoaded = false;
+      let isVerified = false, isDragging = false, startClientX = 0, currentOffset = 0;
+
+      function setTurnstileStatus(message, isError) {
+        if (!turnstileStatusEl) return;
+        turnstileStatusEl.textContent = message || "";
+        turnstileStatusEl.classList.toggle("is-error", Boolean(isError));
+      }
+
+      function renderTurnstileWidget() {
+        const modalOpen = document.getElementById("formKeberatanModal")?.classList.contains("open");
+        if (!useTurnstile || !modalOpen || !window.turnstile || turnstileWidgetId !== null) return;
+        try {
+          turnstileWidgetId = window.turnstile.render("#turnstileContainer", {
+            sitekey: TURNSTILE_SITE_KEY.trim(),
+            theme: "light",
+            size: "normal",
+            language: "id",
+            "refresh-expired": "auto",
+            callback: function (token) {
+              turnstileToken = token || "";
+              isVerified = Boolean(turnstileToken);
+              verifyFieldEl.classList.remove("has-error");
+              setTurnstileStatus("", false);
+            },
+            "expired-callback": function () {
+              turnstileToken = "";
+              isVerified = false;
+              setTurnstileStatus("Sesi verifikasi kedaluwarsa, sedang memuat ulang...", false);
+            },
+            "timeout-callback": function () {
+              turnstileToken = "";
+              isVerified = false;
+              setTurnstileStatus("Verifikasi habis waktu. Silakan centang ulang.", true);
+            },
+            "error-callback": function () {
+              turnstileToken = "";
+              isVerified = false;
+              setTurnstileStatus("Terjadi kendala verifikasi keamanan. Coba centang ulang atau muat ulang halaman.", true);
+            }
+          });
+        } catch (_) {
+          setTurnstileStatus("Gagal menampilkan widget Cloudflare Turnstile. Muat ulang halaman.", true);
+        }
+      }
+
+      function ensureTurnstileReady() {
+        if (!useTurnstile) return;
+        if (window.turnstile) {
+          renderTurnstileWidget();
+          return;
+        }
+        if (turnstileScriptLoaded) return;
+        turnstileScriptLoaded = true;
+        window.__ppidKeberatanTurnstileLoad = renderTurnstileWidget;
+        const cfScript = document.createElement("script");
+        cfScript.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__ppidKeberatanTurnstileLoad";
+        cfScript.async = true;
+        cfScript.defer = true;
+        cfScript.onerror = () => {
+          turnstileToken = "";
+          isVerified = false;
+          setTurnstileStatus("Gagal memuat Cloudflare Turnstile. Periksa koneksi internet Anda lalu muat ulang halaman.", true);
+        };
+        document.head.appendChild(cfScript);
+      }
+
+      if (useTurnstile) {
+        if (turnstileBox) turnstileBox.style.display = "flex";
+        if (slideVerifyContainer) slideVerifyContainer.style.display = "none";
+        if (verifyErrorMsg) verifyErrorMsg.textContent = "Silakan selesaikan verifikasi keamanan Cloudflare Turnstile terlebih dahulu.";
+      }
+
+      function openFormModal() {
+        openModal("formKeberatanModal");
+        ensureTurnstileReady();
+        setTimeout(() => document.getElementById("kodePermohonan")?.focus(), 80);
+      }
+      [document.getElementById("openFormTopBtn"), document.getElementById("openFormCardBtn")].forEach((btn) => {
+        btn?.addEventListener("click", openFormModal);
+      });
+
+      function getMaxSlide() { return Math.max(1, verifyTrack.clientWidth - verifyKnob.offsetWidth - 4); }
+      function updateSliderPosition(px) {
+        currentOffset = Math.max(0, Math.min(px, getMaxSlide()));
+        verifyKnob.style.transform = `translateX(${currentOffset}px)`;
+        verifyFill.style.width = `${currentOffset + verifyKnob.offsetWidth / 2}px`;
+      }
+      function completeVerification() {
+        isVerified = true; isDragging = false;
+        verifyKnob.style.transition = "transform 0.18s ease";
+        verifyFill.style.transition = "width 0.18s ease";
+        verifyKnob.style.transform = `translateX(${getMaxSlide()}px)`;
+        verifyFill.style.width = "100%";
+        verifyTrack.classList.add("verified");
+        verifyLabel.textContent = "Verified";
+        verifyIcon.innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>';
+        verifyFieldEl.classList.remove("has-error");
+      }
+      function resetVerification() {
+        isVerified = false; isDragging = false; currentOffset = 0;
+        if (useTurnstile) {
+          turnstileToken = "";
+          setTurnstileStatus("", false);
+          if (window.turnstile && turnstileWidgetId !== null) {
+            try { window.turnstile.reset(turnstileWidgetId); } catch (_) {}
+          }
+          return;
+        }
+        verifyKnob.style.transition = "transform 0.22s ease";
+        verifyFill.style.transition = "width 0.22s ease";
+        verifyKnob.style.transform = "translateX(0px)";
+        verifyFill.style.width = "0px";
+        verifyTrack.classList.remove("verified");
+        verifyLabel.textContent = "Slide To Verify";
+        verifyIcon.innerHTML = '<polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline>';
+      }
+      function startDrag(x) { if (useTurnstile || isVerified) return; isDragging = true; startClientX = x - currentOffset; verifyKnob.style.transition = "none"; verifyFill.style.transition = "none"; }
+      function moveDrag(x) { if (useTurnstile || !isDragging || isVerified) return; updateSliderPosition(x - startClientX); if (currentOffset >= getMaxSlide() * 0.92) completeVerification(); }
+      function endDrag() { if (useTurnstile || !isDragging || isVerified) return; isDragging = false; if (currentOffset >= getMaxSlide() * 0.92) completeVerification(); else resetVerification(); }
+      verifyKnob.addEventListener("mousedown", (e) => { e.preventDefault(); startDrag(e.clientX); });
+      window.addEventListener("mousemove", (e) => moveDrag(e.clientX));
+      window.addEventListener("mouseup", endDrag);
+      verifyKnob.addEventListener("touchstart", (e) => { if (e.touches[0]) startDrag(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener("touchmove", (e) => { if (isDragging && e.touches[0]) moveDrag(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener("touchend", endDrag);
+      verifyKnob.addEventListener("keydown", (e) => { if (!useTurnstile && !isVerified && (e.key === "ArrowRight" || e.key === "Enter" || e.key === " ")) { e.preventDefault(); completeVerification(); } });
+      window.addEventListener("resize", () => { if (!useTurnstile && isVerified) verifyKnob.style.transform = `translateX(${getMaxSlide()}px)`; });
+
+      /* Form Validation & Submit */
+      const keberatanForm = document.getElementById("keberatanForm");
+      const resetFormBtn = document.getElementById("resetFormBtn");
+      const submitFormBtn = document.getElementById("submitFormBtn");
+      const submitBtnText = document.getElementById("submitBtnText");
+
+      function generateKodeKeberatan() {
+        const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+        let code = "PKKB";
+        for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)];
+        return code;
+      }
+      function formatTodayDate() {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const now = new Date();
+        return `${String(now.getDate()).padStart(2, "0")} ${months[now.getMonth()]} ${now.getFullYear()}`;
+      }
+      function clearAllErrors() {
+        keberatanForm.querySelectorAll(".form-field.has-error").forEach((el) => el.classList.remove("has-error"));
+      }
+      keberatanForm.querySelectorAll(".form-control").forEach((ctrl) => {
+        ctrl.addEventListener("input", () => ctrl.closest(".form-field")?.classList.remove("has-error"));
+        ctrl.addEventListener("change", () => ctrl.closest(".form-field")?.classList.remove("has-error"));
+      });
+      resetFormBtn?.addEventListener("click", () => {
+        keberatanForm.reset();
+        clearUploadedFile();
+        resetVerification();
+        clearAllErrors();
+        showToast("Formulir keberatan telah dikosongkan.");
+      });
+
+      function validateForm() {
+        clearAllErrors();
+        let firstInvalid = null;
+        const checks = [
+          { field: "kodePermohonan", valid: document.getElementById("kodePermohonan").value.trim().length >= 4 },
+          { field: "alasan", valid: Boolean(document.getElementById("alasanKeberatan").value.trim()) },
+          { field: "namaKuasa", valid: document.getElementById("namaKuasa").value.trim().length >= 2 },
+          { field: "noHpKuasa", valid: /^[0-9+\-\s]{9,18}$/.test(document.getElementById("noHpKuasa").value.trim()) },
+          { field: "alamatKuasa", valid: document.getElementById("alamatKuasa").value.trim().length >= 5 },
+          { field: "deskripsi", valid: document.getElementById("deskripsiKeberatan").value.trim().length >= 5 },
+          { field: "uploadIdentitas", valid: uploadedFileValid },
+          { field: "verify", valid: useTurnstile ? Boolean(turnstileToken) : isVerified }
+        ];
+        checks.forEach((c) => {
+          if (!c.valid) {
+            const el = keberatanForm.querySelector(`[data-field="${c.field}"]`);
+            if (el) { el.classList.add("has-error"); if (!firstInvalid) firstInvalid = el; }
+          }
+        });
+        if (firstInvalid) {
+          firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+          showToast("Mohon lengkapi seluruh kolom wajib dan verifikasi terlebih dahulu.", "error");
+          return false;
+        }
+        return true;
+      }
+
+      keberatanForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!validateForm()) return;
+
+        submitFormBtn.disabled = true;
+        submitBtnText.innerHTML = '<span class="spinner" style="display:inline-block;vertical-align:-3px;margin-right:8px;"></span>Proses...';
+
+        const newItem = {
+          jenis: "keberatan",
+          kode: generateKodeKeberatan(),
+          tanggal: formatTodayDate(),
+          kodePermohonan: document.getElementById("kodePermohonan").value.trim().toUpperCase(),
+          alasan: document.getElementById("alasanKeberatan").value,
+          namaKuasa: document.getElementById("namaKuasa").value.trim(),
+          alamatKuasa: document.getElementById("alamatKuasa").value.trim(),
+          noHpKuasa: document.getElementById("noHpKuasa").value.trim(),
+          deskripsi: document.getElementById("deskripsiKeberatan").value.trim(),
+          status: "Pengajuan Keberatan Dikirim",
+          fileIdentitasNama: uploadedFileNameVal,
+          fileIdentitasBase64: uploadedFileDataUrl,
+          turnstileToken: turnstileToken
+        };
+
+        try {
+          let serverNamaPublik = "";
+          if (WEBHOOK_URL) {
+            const resp = await fetch(WEBHOOK_URL, {
+              method: "POST",
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+              body: JSON.stringify(newItem)
+            });
+            const resJson = await resp.json().catch(() => ({ ok: true }));
+            if (resJson && resJson.ok === false) {
+              throw new Error(resJson.error || "Gagal menyimpan pengajuan keberatan ke Google Sheets");
+            }
+            if (resJson && resJson.namaPublik) serverNamaPublik = resJson.namaPublik;
+          } else {
+            await new Promise((r) => setTimeout(r, 750));
+          }
+
+          const publicRecord = {
+            kode: newItem.kode,
+            tanggal: newItem.tanggal,
+            kodePermohonan: newItem.kodePermohonan,
+            alasan: newItem.alasan,
+            namaKuasa: serverNamaPublik || sensorNamaInisial(newItem.namaKuasa),
+            deskripsi: newItem.deskripsi,
+            status: newItem.status
+          };
+
+          keberatanData.unshift(publicRecord);
+          saveKeberatan(keberatanData);
+          gridState.page = 1;
+          renderGrid();
+
+          keberatanForm.reset();
+          clearUploadedFile();
+          resetVerification();
+          closeModal("formKeberatanModal");
+          showToast("Pengajuan keberatan berhasil dikirim! Kode: " + newItem.kode, "success");
+          showDetailModal(publicRecord, true);
+        } catch (err) {
+          resetVerification();
+          showToast((err && err.message) ? err.message : "Gagal mengirim pengajuan keberatan ke server. Coba lagi.", "error");
+        } finally {
+          submitFormBtn.disabled = false;
+          submitBtnText.textContent = "Kirim";
+        }
+      });
+
+      /* Detail & Cek Status */
+      function statusBadgeClass(status) {
+        if (/tolak/i.test(status)) return "status-ditolak";
+        if (/selesai/i.test(status)) return "status-selesai";
+        if (/proses/i.test(status)) return "status-diproses";
+        return "status-dikirim";
+      }
+      function renderDetailHtml(item, isReceipt) {
+        const receiptHtml = isReceipt
+          ? `<div class="receipt-box">
+              <div style="font-weight:700;color:var(--teal-600);font-size:0.93rem;">Pengajuan Keberatan Berhasil Dikirim</div>
+              <div style="font-size:0.81rem;color:var(--slate-700);margin-top:3px;">Simpan kode keberatan berikut untuk memantau status tindak lanjut Atasan PPID Bapenda Kutai Barat:</div>
+              <div class="receipt-code-row">
+                <span class="receipt-code">${escapeHtml(item.kode)}</span>
+                <button type="button" class="btn-detail-row" id="copyCodeBtn">Salin Kode</button>
+              </div>
+            </div>` : "";
+        return `
+          ${receiptHtml}
+          <div class="detail-section-title">Status Pengajuan Keberatan</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 13px;background:var(--slate-50);border:1px solid var(--slate-200);border-radius:8px;margin-bottom:12px;">
+            <span class="code-badge">${escapeHtml(item.kode)}</span>
+            <span class="status-badge ${statusBadgeClass(item.status)}">${escapeHtml(item.status)}</span>
+          </div>
+          <div class="detail-section-title">Rincian Keberatan</div>
+          <table class="detail-kv-table">
+            <tr><th>Tanggal Pengajuan</th><td>${escapeHtml(item.tanggal)}</td></tr>
+            <tr><th>Kode Permohonan Informasi</th><td><span class="code-badge">${escapeHtml(item.kodePermohonan || "-")}</span></td></tr>
+            <tr><th>Alasan Keberatan</th><td>${escapeHtml(item.alasan)}</td></tr>
+            <tr><th>Nama Kuasa / Pengaju</th><td>${escapeHtml(sensorNamaInisial(item.namaKuasa))}</td></tr>
+            <tr><th>Deskripsi Keberatan</th><td>${escapeHtml(item.deskripsi)}</td></tr>
+          </table>`;
+      }
+      function showDetailModal(item, isReceipt) {
+        document.getElementById("detailModalTitle").textContent = isReceipt ? "Bukti Pengajuan Keberatan" : "Detail Pengajuan Keberatan";
+        document.getElementById("detailModalBody").innerHTML = renderDetailHtml(item, isReceipt);
+        document.getElementById("copyCodeBtn")?.addEventListener("click", () => {
+          navigator.clipboard?.writeText(item.kode).catch(() => {});
+          showToast("Kode keberatan " + item.kode + " disalin.", "success");
+        });
+        openModal("detailModal");
+      }
+      document.getElementById("cekStatusForm")?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const code = document.getElementById("cekStatusInput").value.trim().toUpperCase();
+        const resultEl = document.getElementById("cekStatusResult");
+        const found = keberatanData.find((r) =>
+          String(r.kode || "").toUpperCase() === code ||
+          String(r.kodePermohonan || "").toUpperCase() === code
+        );
+        if (!found) {
+          resultEl.innerHTML = `<div style="padding:13px;border-radius:8px;background:var(--red-100);color:var(--red-600);font-size:0.85rem;font-weight:600;">Kode "${escapeHtml(code)}" tidak ditemukan dalam daftar pengajuan keberatan.</div>`;
+          return;
+        }
+        resultEl.innerHTML = renderDetailHtml(found, false);
+      });
+
+      /* DataGrid Permohonan Keberatan */
+      const COLUMNS = [
+        { key: "no", label: "#", sortable: false, groupable: false, visible: true },
+        { key: "kode", label: "Kode", sortable: true, groupable: false, visible: true },
+        { key: "alasan", label: "Alasan Keberatan", sortable: true, groupable: true, visible: true },
+        { key: "namaKuasa", label: "Nama Kuasa", sortable: true, groupable: false, visible: true },
+        { key: "deskripsi", label: "Deskripsi Keberatan", sortable: false, groupable: false, visible: true },
+        { key: "status", label: "Status", sortable: true, groupable: true, visible: true },
+        { key: "aksi", label: "Aksi", sortable: false, groupable: false, visible: true }
+      ];
+      const gridState = { search: "", sortKey: null, sortDir: "asc", groupBy: null, page: 1, pageSize: 5 };
+      const theadEl = document.getElementById("keberatanThead");
+      const tbodyEl = document.getElementById("keberatanTbody");
+      const groupPanelEl = document.getElementById("dxGroupPanel");
+      const pageInfoEl = document.getElementById("dxPageInfo");
+      const pageNumsEl = document.getElementById("dxPageNums");
+      const loadingOverlayEl = document.getElementById("dxLoadingOverlay");
+
+      function renderColumnChooser() {
+        const listEl = document.getElementById("columnChooserList");
+        listEl.innerHTML = COLUMNS.filter((c) => c.key !== "no" && c.key !== "aksi")
+          .map((c) => `<label class="column-chooser-item"><input type="checkbox" data-col-toggle="${c.key}" ${c.visible ? "checked" : ""} /><span>${escapeHtml(c.label)}</span></label>`).join("");
+        listEl.querySelectorAll("input[data-col-toggle]").forEach((cb) => {
+          cb.addEventListener("change", () => {
+            const col = COLUMNS.find((x) => x.key === cb.getAttribute("data-col-toggle"));
+            if (col) col.visible = cb.checked;
+            renderGrid();
+          });
+        });
+      }
+      function renderGroupPanel() {
+        if (!gridState.groupBy) {
+          groupPanelEl.innerHTML = '<span id="dxGroupPlaceholder">Drag header column to grouping</span>';
+          return;
+        }
+        const col = COLUMNS.find((c) => c.key === gridState.groupBy);
+        groupPanelEl.innerHTML = `<span style="font-size:0.77rem;color:var(--slate-500);">Dikelompokkan berdasarkan:</span><span class="group-chip"><span>${escapeHtml(col ? col.label : gridState.groupBy)}</span><button type="button" id="clearGroupBtn">&times;</button></span>`;
+        document.getElementById("clearGroupBtn")?.addEventListener("click", () => { gridState.groupBy = null; renderGrid(); });
+      }
+      function getFilteredAndSortedData() {
+        const q = gridState.search.toLowerCase().trim();
+        let list = keberatanData.filter((item) =>
+          !q ||
+          String(item.kode || "").toLowerCase().includes(q) ||
+          String(item.kodePermohonan || "").toLowerCase().includes(q) ||
+          String(item.alasan || "").toLowerCase().includes(q) ||
+          String(item.namaKuasa || "").toLowerCase().includes(q) ||
+          String(item.deskripsi || "").toLowerCase().includes(q) ||
+          String(item.status || "").toLowerCase().includes(q)
+        );
+        if (gridState.sortKey) {
+          const key = gridState.sortKey, mult = gridState.sortDir === "asc" ? 1 : -1;
+          list = list.slice().sort((a, b) => String(a[key] || "").localeCompare(String(b[key] || ""), "id") * mult);
+        }
+        return list;
+      }
+      function renderCell(colKey, item, index) {
+        switch (colKey) {
+          case "no": return `<td>${index + 1}</td>`;
+          case "kode": return `<td><span class="code-badge">${escapeHtml(item.kode)}</span></td>`;
+          case "alasan": return `<td>${escapeHtml(item.alasan)}</td>`;
+          case "namaKuasa": return `<td style="white-space:nowrap;"><strong>${escapeHtml(sensorNamaInisial(item.namaKuasa))}</strong></td>`;
+          case "deskripsi": return `<td><div class="td-clamp" title="${escapeHtml(item.deskripsi)}">${escapeHtml(item.deskripsi)}</div></td>`;
+          case "status": return `<td><span class="status-badge ${statusBadgeClass(item.status)}">${escapeHtml(item.status)}</span></td>`;
+          case "aksi": return `<td><button type="button" class="btn-detail-row" data-detail-kode="${escapeHtml(item.kode)}">Detail</button></td>`;
+          default: return "<td>-</td>";
+        }
+      }
+      function renderGrid() {
+        renderGroupPanel();
+        const visibleCols = COLUMNS.filter((c) => c.visible);
+        const filtered = getFilteredAndSortedData();
+        const total = filtered.length;
+        const totalPages = Math.max(1, Math.ceil(total / gridState.pageSize));
+        if (gridState.page > totalPages) gridState.page = totalPages;
+        const startIdx = (gridState.page - 1) * gridState.pageSize;
+        const pageRows = filtered.slice(startIdx, startIdx + gridState.pageSize);
+
+        theadEl.innerHTML = "<tr>" + visibleCols.map((c) => {
+          const isSorted = gridState.sortKey === c.key;
+          const arrow = isSorted ? (gridState.sortDir === "asc" ? "▲" : "▼") : c.sortable ? "⇅" : "";
+          const dragAttr = c.groupable ? `draggable="true" data-drag-col="${c.key}" title="Seret kolom ini ke area grouping"` : "";
+          return `<th class="${c.sortable ? "sortable" : ""}" data-sort-col="${c.sortable ? c.key : ""}" ${dragAttr}><span class="th-content"><span>${escapeHtml(c.label)}</span>${arrow ? `<span class="sort-ind">${arrow}</span>` : ""}</span></th>`;
+        }).join("") + "</tr>";
+
+        theadEl.querySelectorAll("th[data-sort-col]").forEach((th) => {
+          const key = th.getAttribute("data-sort-col");
+          if (!key) return;
+          th.addEventListener("click", () => {
+            if (gridState.sortKey === key) gridState.sortDir = gridState.sortDir === "asc" ? "desc" : "asc";
+            else { gridState.sortKey = key; gridState.sortDir = "asc"; }
+            renderGrid();
+          });
+        });
+        theadEl.querySelectorAll("th[data-drag-col]").forEach((th) => {
+          th.addEventListener("dragstart", (e) => e.dataTransfer.setData("text/plain", th.getAttribute("data-drag-col")));
+        });
+
+        if (!pageRows.length) {
+          tbodyEl.innerHTML = `<tr><td colspan="${visibleCols.length}" style="text-align:center;padding:24px;color:var(--slate-500);">Belum ada data pengajuan keberatan.</td></tr>`;
+        } else if (gridState.groupBy) {
+          const groupKey = gridState.groupBy;
+          const groupLabel = COLUMNS.find((c) => c.key === groupKey)?.label || groupKey;
+          const grouped = new Map();
+          pageRows.forEach((row, idx) => {
+            const gVal = row[groupKey] || "-";
+            if (!grouped.has(gVal)) grouped.set(gVal, []);
+            grouped.get(gVal).push({ row, idx: startIdx + idx });
+          });
+          let html = "";
+          grouped.forEach((entries, gVal) => {
+            html += `<tr class="dx-group-row"><td colspan="${visibleCols.length}">${escapeHtml(groupLabel)}: ${escapeHtml(gVal)} (${entries.length})</td></tr>`;
+            entries.forEach(({ row, idx }) => { html += "<tr>" + visibleCols.map((c) => renderCell(c.key, row, idx)).join("") + "</tr>"; });
+          });
+          tbodyEl.innerHTML = html;
+        } else {
+          tbodyEl.innerHTML = pageRows.map((row, idx) => "<tr>" + visibleCols.map((c) => renderCell(c.key, row, startIdx + idx)).join("") + "</tr>").join("");
+        }
+
+        tbodyEl.querySelectorAll("[data-detail-kode]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const found = keberatanData.find((r) => r.kode === btn.getAttribute("data-detail-kode"));
+            if (found) showDetailModal(found, false);
+          });
+        });
+
+        pageInfoEl.textContent = `Halaman ${gridState.page} dari ${totalPages} (${total} data)`;
+        let pagerHtml = `<button type="button" class="dx-page-btn" data-go-page="${gridState.page - 1}" ${gridState.page <= 1 ? "disabled" : ""}>&lsaquo;</button>`;
+        for (let p = 1; p <= totalPages; p++) pagerHtml += `<button type="button" class="dx-page-btn ${p === gridState.page ? "active" : ""}" data-go-page="${p}">${p}</button>`;
+        pagerHtml += `<button type="button" class="dx-page-btn" data-go-page="${gridState.page + 1}" ${gridState.page >= totalPages ? "disabled" : ""}>&rsaquo;</button>`;
+        pageNumsEl.innerHTML = pagerHtml;
+        pageNumsEl.querySelectorAll("[data-go-page]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const target = Number(btn.getAttribute("data-go-page"));
+            if (target >= 1 && target <= totalPages) { gridState.page = target; renderGrid(); }
+          });
+        });
+      }
+
+      groupPanelEl.addEventListener("dragover", (e) => { e.preventDefault(); groupPanelEl.classList.add("drop-active"); });
+      groupPanelEl.addEventListener("dragleave", () => groupPanelEl.classList.remove("drop-active"));
+      groupPanelEl.addEventListener("drop", (e) => {
+        e.preventDefault();
+        groupPanelEl.classList.remove("drop-active");
+        const colKey = e.dataTransfer.getData("text/plain");
+        if (colKey && COLUMNS.some((c) => c.key === colKey && c.groupable)) { gridState.groupBy = colKey; renderGrid(); }
+      });
+      document.getElementById("dxSearchInput")?.addEventListener("input", (e) => { gridState.search = e.target.value; gridState.page = 1; renderGrid(); });
+      const columnChooserBtn = document.getElementById("columnChooserBtn");
+      const columnChooserPopover = document.getElementById("columnChooserPopover");
+      columnChooserBtn?.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const open = columnChooserPopover.classList.toggle("open");
+        columnChooserBtn.setAttribute("aria-expanded", String(open));
+      });
+      columnChooserPopover?.addEventListener("click", (e) => e.stopPropagation());
+      document.addEventListener("click", () => { columnChooserPopover.classList.remove("open"); columnChooserBtn.setAttribute("aria-expanded", "false"); });
+
+      async function syncFromGoogleSheets(showDoneToast) {
+        if (!WEBHOOK_URL) {
+          loadingOverlayEl.classList.add("active");
+          setTimeout(() => {
+            renderGrid();
+            loadingOverlayEl.classList.remove("active");
+            if (showDoneToast) showToast("Daftar pengajuan keberatan diperbarui.");
+          }, 320);
+          return;
+        }
+        loadingOverlayEl.classList.add("active");
+        try {
+          const getUrl = /[?&]jenis=/i.test(WEBHOOK_URL)
+            ? WEBHOOK_URL
+            : WEBHOOK_URL + (WEBHOOK_URL.includes("?") ? "&" : "?") + "jenis=keberatan";
+          const resp = await fetch(getUrl);
+          const json = await resp.json();
+          if (json && json.ok && Array.isArray(json.data)) {
+            keberatanData = json.data.map((item) => Object.assign({}, item, { namaKuasa: sensorNamaInisial(item && item.namaKuasa) }));
+            saveKeberatan(keberatanData);
+            gridState.page = 1;
+            renderGrid();
+            if (showDoneToast) showToast("Data keberatan tersinkronisasi dari Google Sheets.", "success");
+          }
+        } catch (_) {
+          if (showDoneToast) showToast("Gagal menyinkronkan data dari Google Sheets.", "error");
+        } finally {
+          loadingOverlayEl.classList.remove("active");
+        }
+      }
+
+      document.getElementById("dxRefreshBtn")?.addEventListener("click", () => syncFromGoogleSheets(true));
+      document.querySelectorAll(".dx-size-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".dx-size-btn").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          gridState.pageSize = Number(btn.getAttribute("data-size")) || 5;
+          gridState.page = 1;
+          renderGrid();
+        });
+      });
+
+      renderColumnChooser();
+      renderGrid();
+      if (WEBHOOK_URL) syncFromGoogleSheets(false);
+    })();
+  </script>
+</body>
+</html>
